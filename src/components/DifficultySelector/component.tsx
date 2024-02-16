@@ -7,15 +7,19 @@ export const DifficultySelector = ({
   classNames,
   callback
 }: DifficultySelectorProps) => {
-  const [selectedLevel, useSelectedLevel] = useState<string | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+
+  const onClickHandler = (level: string) => {
+    setSelectedLevel(level);
+    callback(level);
+  };
   
   return <div className={`difficulty-selection ${classNames}`}>
     {levels.map((level) => {
       return <button key={level} type="button" className={clsx('button', {
         'selected': selectedLevel === level,
       })} onClick={() => {
-        useSelectedLevel(level);
-        callback(level);
+        onClickHandler(level);
       }}>{level}</button>
     })}
   </div>
