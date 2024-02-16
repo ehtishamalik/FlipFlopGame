@@ -95,6 +95,7 @@ input {
     text-transform: capitalize;
     cursor: pointer;
 
+    &.selected,
     &:hover {
       background-color: $btn-hover;
     }
