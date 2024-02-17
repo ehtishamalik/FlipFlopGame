@@ -1,6 +1,5 @@
-
 export type DifficultySelectorProps = {
-  levels: string[];
-  classNames: string;
-  callback: (event: string) => void;
-};
+  levels: string[]
+  classNames: string
+  callback: (event: string) => void
+}

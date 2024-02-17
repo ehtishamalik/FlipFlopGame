@@ -1,6 +1,5 @@
-
 export type CardProps = {
-  image: string;
-  showAnimal: boolean;
-  callback: () => void;
-};
+  image: string
+  showAnimal: boolean
+  callback: () => void
+}

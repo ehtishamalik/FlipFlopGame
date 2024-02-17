@@ -1,4 +1,3 @@
-
 export type CardsProps = {
-  dimension: 4 | 6 | 8 | 10;
-};
+  dimension: 4 | 6 | 8 | 10
+}
