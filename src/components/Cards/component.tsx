@@ -1,5 +1,5 @@
 import { Card } from '../Card'
-import { allAnimals } from '../common/images'
+import { allAnimals } from '../Common/images'
 import { CardsProps } from './types'
 
 export const Cards = ({ dimension }: CardsProps) => {
