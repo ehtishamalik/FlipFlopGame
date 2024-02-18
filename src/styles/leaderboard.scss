@@ -1,38 +1,65 @@
 .leaderboard {
-  background-color: var(--bg-color-leaderboard);
+  background-color: $bg-color-leaderboard;
   padding: 0.5rem;
 
   h1 {
     text-align: center;
     margin-bottom: 0.5rem;
+    text-transform: capitalize;
+  }
+
+  .difficulty-selection {
+    background-color: $bg-LDS;
   }
 
   .leaderboard-table {
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 
       th {
         padding: 0.3rem;
         text-align: center;
-        border: 0.1rem solid black;
+        border: 0.1rem solid $color;
         text-transform: capitalize;
 
         &:first-child,
         &:last-child {
           width: 20%;
         }
+
+        &:nth-child(1) {
+          background-color: $bg-LP;
+        }
+
+        &:nth-child(2) {
+          background-color: $bg-LN;
+        }
+
+        &:nth-child(3) {
+          background-color: $bg-LT;
+        }
       }
 
       td {
         padding: 0.3rem;
         text-align: center;
-        border: 0.1rem solid black;
+        border: 0.1rem solid $color;
         &:first-child,
         &:last-child {
           width: 20%;
         }
+
+        &:nth-child(1) {
+          background-color: $bg-LPL;
+        }
+
+        &:nth-child(2) {
+          background-color: $bg-LNL;
+        }
+
+        &:nth-child(3) {
+          background-color: $bg-LTL;
+        }
       }
-    }
   }
 }
