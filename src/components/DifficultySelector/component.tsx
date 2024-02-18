@@ -15,7 +15,7 @@ export const DifficultySelector = ({
   }
 
   return (
-    <div className={`difficulty-selection ${classNames}`}>
+    <div className={clsx('difficulty-selection', classNames)}>
       {levels.map((level) => {
         return (
           <button

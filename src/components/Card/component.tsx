@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { backImage } from '../common/images'
+import { backImage } from '../Common/images'
 import { CardProps } from './types'
 
 export const Card = ({ image, showAnimal, callback }: CardProps) => {
