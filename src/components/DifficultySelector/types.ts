@@ -1,5 +1,7 @@
+import { DifficultyLevel } from '../../types'
+
 export type DifficultySelectorProps = {
-  levels: string[]
+  levels: DifficultyLevel[]
   classNames?: string
-  callback: (event: string) => void
+  callback: (value: DifficultyLevel) => void
 }

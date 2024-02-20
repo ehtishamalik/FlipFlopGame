@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { DifficultySelector } from '../DifficultySelector'
-import { leaderBoardLevels } from './constants'
 import { tableDataProps } from './types'
+import { difficultyLevels } from '../../constants'
 
 export const LeaderBoard = () => {
   const [tableLevel, setTableLevel] = useState<string | null>(null)
@@ -11,7 +11,7 @@ export const LeaderBoard = () => {
   return (
     <>
       <DifficultySelector
-        levels={leaderBoardLevels}
+        levels={difficultyLevels}
         callback={(level) => {
           setTableLevel(level)
         }}
