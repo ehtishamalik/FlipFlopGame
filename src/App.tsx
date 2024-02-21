@@ -1,5 +1,5 @@
 import { FlipFlopGame } from './components/FlipFlopGame'
-import { Header } from './components/Header'
+import { Timer } from './components/Timer'
 import { InputField } from './components/InputField'
 import { LeaderBoard } from './components/LeaderBoard'
 
@@ -8,14 +8,16 @@ function App() {
     <>
       <section className='animal-memory'>
         <div className='container'>
-          <Header headerLabel='animal memory' />
-          <InputField />
+          <header className='header'>
+            <h1>animal memory</h1>
+          </header>
+          <div className='fields'>
+            <InputField />
+            <Timer />
+          </div>
           <FlipFlopGame />
         </div>
-        <div className='leaderboard'>
-          <h1>leaderboard</h1>
-          <LeaderBoard />
-        </div>
+        <LeaderBoard header='leaderboard' />
       </section>
     </>
   )

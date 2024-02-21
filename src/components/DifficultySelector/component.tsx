@@ -5,10 +5,13 @@ import { DifficultyLevel } from '../../types'
 
 export const DifficultySelector = ({
   levels,
+  defaultLevel,
   classNames,
   callback,
 }: DifficultySelectorProps) => {
-  const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(
+    defaultLevel ?? null
+  )
 
   const onClickHandler = (level: DifficultyLevel) => {
     setSelectedLevel(level)

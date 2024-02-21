@@ -11,14 +11,14 @@ export const getRandomArray = (level: DifficultyLevel | null) => {
 
   if (numbercards === 50) {
     Array.from({ length: numbercards }, (_, index) => {
-      cards.push({ image: allAnimals[index] })
-      cards.push({ image: allAnimals[index] })
+      cards.push({ image: allAnimals[index], id: index })
+      cards.push({ image: allAnimals[index], id: index })
     })
   } else {
-    Array.from({ length: numbercards }, () => {
+    Array.from({ length: numbercards }, (_, index) => {
       const randomNumber = getRandomNumber(alreadyAdded)
-      cards.push({ image: allAnimals[randomNumber] })
-      cards.push({ image: allAnimals[randomNumber] })
+      cards.push({ image: allAnimals[randomNumber], id: index })
+      cards.push({ image: allAnimals[randomNumber], id: index })
     })
   }
 

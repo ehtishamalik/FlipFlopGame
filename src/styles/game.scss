@@ -3,83 +3,88 @@
   padding: 0.5rem;
 
   .header {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
     margin-bottom: 1rem;
 
     h1 {
-      flex-basis: 70%;
-      text-align: center;
       text-transform: capitalize;
+      text-align: center;
       padding: 0.3rem;
     }
 
-    .time-container {
-      flex-basis: 30%;
-    }
-
-    .time {
-      max-width: 3rem;
-      text-align: center;
-      background-color: $bg-input;
-      color: $color-input;
-      margin: 0 auto;
-      padding: 0.3rem 2rem;
-      border-radius: 0.5rem;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
   }
-
-  .input-field__container {
+  
+  .fields {
     display: flex;
-    flex-direction: row;
-    margin: 0 0 1rem 0.5rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 
-    .input-field {
-      flex-basis: 15rem;
-      background-color: $bg-input;
-      font-size: 1rem;
-      font-weight: 600;
-      color: $color-input;
-      padding: 0.6rem 2rem 0.6rem 0.6rem;
-      border-radius: 0.5rem;
-      border: none;
-      outline: none;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .input-field__container {
+  
+      .input-field {
+        background-color: $bg-input;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $color-input;
+        padding: 0.6rem 2rem 0.6rem 0.6rem;
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-      &:hover {
-        + .edit-button {
+        &::placeholder {
+          color: rgba($color-input, 0.6);
+        }
+  
+        &:hover {
+          + .edit-button {
+            opacity: 0.6;
+          }
+        }
+      }
+  
+      .edit-button {
+        cursor: pointer;
+        position: relative;
+        left: -1.5rem;
+        border: none;
+        outline: none;
+        background: transparent;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+  
+        &:hover {
           opacity: 0.6;
+        }
+        .edit-image {
+          width: 0.8rem;
+          height: 0.8rem;
         }
       }
     }
 
-    .edit-button {
-      cursor: pointer;
-      position: relative;
-      left: -1.5rem;
-      border: none;
-      outline: none;
-      background: transparent;
-      opacity: 0;
-      transition: all 0.3s ease-in-out;
+    .time {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background-color: $bg-input;
+      color: $color-input;
+      padding: 0.3rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-      &:hover {
-        opacity: 0.6;
-      }
-      .edit-image {
-        width: 1rem;
-        height: 1rem;
+      &.inactive {
+        color: rgba($color-input, 0.6);
       }
     }
   }
 
-  .difficulty-selection {
-    background-color: $bg-GDS;
-  }
-
   .game-container {
+
+    .difficulty-selection {
+      background-color: $bg-GDS;
+    }
+    
     h2,
     p {
       text-align: center;

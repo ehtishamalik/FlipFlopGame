@@ -1,6 +1,11 @@
 .leaderboard {
   background-color: $bg-color-leaderboard;
   padding: 0.5rem;
+  height: auto;
+
+  // &.stretch {
+  //   height: calc(100vh - 1rem);
+  // }
 
   h1 {
     text-align: center;
