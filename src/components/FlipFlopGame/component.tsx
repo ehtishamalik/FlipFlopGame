@@ -11,52 +11,50 @@ export const FlipFlopGame = () => {
   const cards = getRandomArray(gameLevel)
 
   return (
-    <>
+    <div className='game-container'>
       <DifficultySelector
         levels={difficultyLevels}
         callback={(level: DifficultyLevel) => {
           setGameLevel(level)
         }}
       />
-      <div className='game-container'>
-        {gameLevel ? (
-          <div
-            className={clsx('cards-grid', {
-              'grid-4': gameLevel === 'easy',
-              'grid-6': gameLevel === 'normal',
-              'grid-8': gameLevel === 'hard',
-              'grid-10': gameLevel === 'expert',
-            })}
-          >
-            {cards.map((card, index) => {
-              return (
-                <Card
-                  key={index}
-                  image={card.image}
-                  showAnimal={false}
-                  callback={() => {}}
-                />
-              )
-            })}
-          </div>
-        ) : (
-          <>
-            <h2>Welcome to Animal Memory, a memory game for your memory :D</h2>
-            <p>
-              You might be asking yourself how to play this game. Do not worry,
-              that is why this paragraph is here.
-            </p>
-            <p>
-              Please, insert your name so you can start the game. Once you
-              start, the timer will start ticking.
-            </p>
-            <p>
-              When you are done, it will stop the time position and the username
-              will be printed to the table. ;)
-            </p>
-          </>
-        )}
-      </div>
-    </>
+      {gameLevel ? (
+        <div
+          className={clsx('cards-grid', {
+            'grid-4': gameLevel === 'easy',
+            'grid-6': gameLevel === 'normal',
+            'grid-8': gameLevel === 'hard',
+            'grid-10': gameLevel === 'expert',
+          })}
+        >
+          {cards.map((card, index) => {
+            return (
+              <Card
+                key={index}
+                image={card.image}
+                showAnimal={false}
+                callback={() => {}}
+              />
+            )
+          })}
+        </div>
+      ) : (
+        <>
+          <h2>Welcome to Animal Memory, a memory game for your memory :D</h2>
+          <p>
+            You might be asking yourself how to play this game. Do not worry,
+            that is why this paragraph is here.
+          </p>
+          <p>
+            Please, insert your name so you can start the game. Once you start,
+            the timer will start ticking.
+          </p>
+          <p>
+            When you are done, it will stop the time position and the username
+            will be printed to the table. ;)
+          </p>
+        </>
+      )}
+    </div>
   )
 }
