@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { difficultyLevels } from '../../constants'
 import { DifficultySelector } from '../DifficultySelector'
 import { getRandomArray } from './constant'
-import { DifficultyLevel } from '../../types'
+import { CardsArray, DifficultyLevel } from '../../types'
 import clsx from 'clsx'
-import { Card } from '../Card'
+import { Cards } from '../Cards'
 
 export const FlipFlopGame = () => {
   const [gameLevel, setGameLevel] = useState<DifficultyLevel | null>(null)
-  const cards = getRandomArray(gameLevel)
+  const cards: CardsArray = getRandomArray(gameLevel)
 
   return (
     <div className='game-container'>
@@ -27,16 +27,7 @@ export const FlipFlopGame = () => {
             'grid-10': gameLevel === 'expert',
           })}
         >
-          {cards.map((card, index) => {
-            return (
-              <Card
-                key={index}
-                image={card.image}
-                showAnimal={false}
-                callback={() => {}}
-              />
-            )
-          })}
+          <Cards cards={cards} />
         </div>
       ) : (
         <>

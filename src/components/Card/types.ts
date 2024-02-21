@@ -1,5 +1,6 @@
 export type CardProps = {
   image: string
+  id: number
   showAnimal: boolean
-  callback: () => void
+  callback: (card: HTMLDivElement) => void
 }

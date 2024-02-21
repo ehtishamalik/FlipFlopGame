@@ -2,13 +2,16 @@ import clsx from 'clsx'
 import { backImage } from '../Common/images'
 import { CardProps } from './types'
 
-export const Card = ({ image, showAnimal, callback }: CardProps) => {
+export const Card = ({ id, image, showAnimal, callback }: CardProps) => {
   return (
     <div
+      data-number={id}
       className={clsx('card', {
         flipped: showAnimal,
       })}
-      onClick={callback}
+      onClick={(event) => {
+        callback(event.currentTarget)
+      }}
     >
       <figure className='front'>
         <img

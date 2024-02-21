@@ -16,7 +16,7 @@ export const LeaderBoard = ({ header, defaultLevel }: LeaderBoardProps) => {
   return (
     <div
       className={clsx('leaderboard', {
-        'stretch': stretchLeaderboard,
+        stretch: stretchLeaderboard,
       })}
     >
       <h1>{header}</h1>
