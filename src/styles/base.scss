@@ -6,13 +6,7 @@
 }
 
 body {
-  background: linear-gradient(
-    to right,
-    $bg-color-game 0%,
-    $bg-color-game 50%,
-    $bg-color-leaderboard 50%,
-    $bg-color-leaderboard 100%
-  );
+  background-color: $bg-color-game;
   color: $color;
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -31,17 +25,13 @@ input {
   max-width: 90rem;
   min-width: 23rem;
   margin: 0 auto;
-  height: 100vh;
-  overflow-y: hidden;
 
   .container {
-    flex-basis: 70%;
-    height: 100%;
+    flex-basis: 75%;
   }
 
   .leaderboard {
-    flex-basis: 30%;
-    height: 100%;
+    flex-basis: 25%;
   }
 }
 
