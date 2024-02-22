@@ -8,37 +8,20 @@ export const Cards = ({ cards }: CardsProps) => {
     null
   )
   const [lockedBoard, setLockedBoard] = useState<boolean>(false)
-
-  useEffect(() => {
-    console.log(firstFlipped, secondFlipped)
-
-    if (firstFlipped && secondFlipped) {
-      if (firstFlipped.dataset.number === secondFlipped.dataset.number) {
-        console.log('same')
-        resetBoard()
-      } else {
-        setTimeout(() => {
-          unflipCards()
-          resetBoard()
-        }, 800)
-      }
-    }
-  }, [firstFlipped, secondFlipped])
+  const [successFlipped, setSuccessFlipped] = useState<string[]>([])
 
   const handleCardFlip = (card: HTMLDivElement) => {
     if (lockedBoard) return
+    if (!card.dataset.number) return
+    if (successFlipped.includes(card.dataset.number))
+      return
     card.classList.add('flipped')
     if (!firstFlipped) {
       setFirstFlipped(card)
-      return
+    } else {
+      setSecondFlipped(card)
+      setLockedBoard(true)
     }
-    setSecondFlipped(card)
-    setLockedBoard(true)
-  }
-
-  const unflipCards = () => {
-    firstFlipped?.classList.remove('flipped')
-    secondFlipped?.classList.remove('flipped')
   }
 
   const resetBoard = () => {
@@ -47,12 +30,31 @@ export const Cards = ({ cards }: CardsProps) => {
     setLockedBoard(false)
   }
 
+  useEffect(() => {
+    if (
+      firstFlipped &&
+      secondFlipped &&
+      firstFlipped.dataset.number &&
+      secondFlipped.dataset.number
+    ) {
+      if (firstFlipped.dataset.number === secondFlipped.dataset.number) {
+        setSuccessFlipped([...successFlipped, firstFlipped.dataset.number])
+        resetBoard()
+      } else {
+        setTimeout(() => {
+          firstFlipped.classList.remove('flipped')
+          secondFlipped.classList.remove('flipped')
+          resetBoard()
+        }, 800)
+      }
+    }
+  }, [firstFlipped, secondFlipped, successFlipped])
+
   return cards.map((card, index) => (
     <Card
       key={index}
       id={card.id}
       image={card.image}
-      showAnimal={false}
       callback={handleCardFlip}
     />
   ))

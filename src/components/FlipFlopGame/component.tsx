@@ -14,6 +14,7 @@ export const FlipFlopGame = () => {
     <div className='game-container'>
       <DifficultySelector
         levels={difficultyLevels}
+        defaultLevel={gameLevel}
         callback={(level: DifficultyLevel) => {
           setGameLevel(level)
         }}
