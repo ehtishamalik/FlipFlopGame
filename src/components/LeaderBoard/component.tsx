@@ -22,10 +22,8 @@ export const LeaderBoard = ({ header, defaultLevel }: LeaderBoardProps) => {
       <h1>{header}</h1>
       <DifficultySelector
         levels={difficultyLevels}
-        defaultLevel={defaultLevel}
-        callback={(level) => {
-          setTableLevel(level)
-        }}
+        defaultLevel={tableLevel}
+        callback={setTableLevel}
       />
       <table className='leaderboard-table'>
         <thead>

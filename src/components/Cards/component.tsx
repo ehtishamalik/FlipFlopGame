@@ -2,43 +2,25 @@ import { useEffect, useState } from 'react'
 import { Card } from '../Card'
 import { CardsProps } from './types'
 
-export const Cards = ({ cards }: CardsProps) => {
+export const Cards = ({ cards, onGameComplete }: CardsProps) => {
   const [firstFlipped, setFirstFlipped] = useState<HTMLDivElement | null>(null)
   const [secondFlipped, setSecondFlipped] = useState<HTMLDivElement | null>(
     null
   )
   const [lockedBoard, setLockedBoard] = useState<boolean>(false)
-
-  useEffect(() => {
-    console.log(firstFlipped, secondFlipped)
-
-    if (firstFlipped && secondFlipped) {
-      if (firstFlipped.dataset.number === secondFlipped.dataset.number) {
-        console.log('same')
-        resetBoard()
-      } else {
-        setTimeout(() => {
-          unflipCards()
-          resetBoard()
-        }, 800)
-      }
-    }
-  }, [firstFlipped, secondFlipped])
+  const [successFlipped, setSuccessFlipped] = useState<string[]>([])
 
   const handleCardFlip = (card: HTMLDivElement) => {
     if (lockedBoard) return
+    if (!card.dataset.number) return
+    if (successFlipped.includes(card.dataset.number)) return
     card.classList.add('flipped')
     if (!firstFlipped) {
       setFirstFlipped(card)
-      return
+    } else {
+      setSecondFlipped(card)
+      setLockedBoard(true)
     }
-    setSecondFlipped(card)
-    setLockedBoard(true)
-  }
-
-  const unflipCards = () => {
-    firstFlipped?.classList.remove('flipped')
-    secondFlipped?.classList.remove('flipped')
   }
 
   const resetBoard = () => {
@@ -47,12 +29,42 @@ export const Cards = ({ cards }: CardsProps) => {
     setLockedBoard(false)
   }
 
+  useEffect(() => {
+    if (successFlipped.length && successFlipped.length === cards.length / 2) {
+      setSuccessFlipped([])
+      onGameComplete()
+      return
+    }
+    if (
+      firstFlipped &&
+      secondFlipped &&
+      firstFlipped.dataset.number &&
+      secondFlipped.dataset.number
+    ) {
+      if (firstFlipped.dataset.number === secondFlipped.dataset.number) {
+        setSuccessFlipped([...successFlipped, firstFlipped.dataset.number])
+        resetBoard()
+      } else {
+        setTimeout(() => {
+          firstFlipped.classList.remove('flipped')
+          secondFlipped.classList.remove('flipped')
+          resetBoard()
+        }, 800)
+      }
+    }
+  }, [
+    firstFlipped,
+    secondFlipped,
+    successFlipped,
+    cards.length,
+    onGameComplete,
+  ])
+
   return cards.map((card, index) => (
     <Card
       key={index}
       id={card.id}
       image={card.image}
-      showAnimal={false}
       callback={handleCardFlip}
     />
   ))
