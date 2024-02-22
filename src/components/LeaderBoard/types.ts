@@ -2,7 +2,7 @@ import { DifficultyLevel } from '../../types'
 
 export type LeaderBoardProps = {
   header: string
-  defaultLevel?: DifficultyLevel
+  defaultLevel?: DifficultyLevel | null
 }
 
 export type tableDataProps = {
