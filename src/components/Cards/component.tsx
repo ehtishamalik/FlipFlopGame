@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Card } from '../Card'
 import { CardsProps } from './types'
 
-export const Cards = ({ cards }: CardsProps) => {
+export const Cards = ({ cards, onGameComplete }: CardsProps) => {
   const [firstFlipped, setFirstFlipped] = useState<HTMLDivElement | null>(null)
   const [secondFlipped, setSecondFlipped] = useState<HTMLDivElement | null>(
     null
@@ -13,8 +13,7 @@ export const Cards = ({ cards }: CardsProps) => {
   const handleCardFlip = (card: HTMLDivElement) => {
     if (lockedBoard) return
     if (!card.dataset.number) return
-    if (successFlipped.includes(card.dataset.number))
-      return
+    if (successFlipped.includes(card.dataset.number)) return
     card.classList.add('flipped')
     if (!firstFlipped) {
       setFirstFlipped(card)
@@ -31,6 +30,11 @@ export const Cards = ({ cards }: CardsProps) => {
   }
 
   useEffect(() => {
+    if (successFlipped.length && successFlipped.length === cards.length / 2) {
+      setSuccessFlipped([])
+      onGameComplete()
+      return
+    }
     if (
       firstFlipped &&
       secondFlipped &&
@@ -48,7 +52,13 @@ export const Cards = ({ cards }: CardsProps) => {
         }, 800)
       }
     }
-  }, [firstFlipped, secondFlipped, successFlipped])
+  }, [
+    firstFlipped,
+    secondFlipped,
+    successFlipped,
+    cards.length,
+    onGameComplete,
+  ])
 
   return cards.map((card, index) => (
     <Card
