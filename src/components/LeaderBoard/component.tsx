@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { DifficultySelector } from '../DifficultySelector'
-import { LeaderBoardProps, tableDataProps } from './types'
+import { LeaderBoardProps } from './types'
 import { difficultyLevels } from '../../constants'
-import { DifficultyLevel } from '../../types'
+import { DifficultyLevel, tableData } from '../../types'
 import clsx from 'clsx'
 
 export const LeaderBoard = ({ header, defaultLevel }: LeaderBoardProps) => {
@@ -10,7 +10,7 @@ export const LeaderBoard = ({ header, defaultLevel }: LeaderBoardProps) => {
     defaultLevel ?? null
   )
   const tableData = tableLevel ? localStorage.getItem(tableLevel) : ''
-  const ParsedTableData: tableDataProps = tableData ? JSON.parse(tableData) : []
+  const ParsedTableData: tableData[] = tableData ? JSON.parse(tableData) : []
   const stretchLeaderboard = tableLevel === 'easy' || tableLevel === null
 
   return (

@@ -7,8 +7,12 @@ import clsx from 'clsx'
 import { Cards } from '../Cards'
 import { FlipFlopGameProps } from './types'
 import { Alert } from '../Alert'
+import { saveTime } from './helper'
 
-export const FlipFlopGame = ({ userName }: FlipFlopGameProps) => {
+export const FlipFlopGame = ({
+  userName,
+  onLevelChange,
+}: FlipFlopGameProps) => {
   const [gameLevel, setGameLevel] = useState<DifficultyLevel | null>(null)
   const [showAlert, setShowAlert] = useState<string | null>(null)
   const [cards, setCards] = useState<CardsArray>([])
@@ -36,6 +40,7 @@ export const FlipFlopGame = ({ userName }: FlipFlopGameProps) => {
           callback={(level: DifficultyLevel) => {
             if (userName) {
               setGameLevel(level)
+              onLevelChange?.(level)
             } else {
               setShowAlert('Please enter your name')
             }
@@ -55,9 +60,11 @@ export const FlipFlopGame = ({ userName }: FlipFlopGameProps) => {
               onGameComplete={() => {
                 const timeout = setTimeout(() => {
                   setShowAlert('Congratulations, You have WON!')
+                  saveTime(gameLevel, userName!)
                   setGameLevel(null)
+                  onLevelChange?.(null)
                   clearTimeout(timeout)
-                }, 800)
+                }, 1000)
               }}
             />
           </div>
