@@ -65,12 +65,14 @@ input {
     height: auto;
     overflow-y: auto;
   }
+
   .animal-memory {
     display: block;
   }
 
   .difficulty-selection {
     flex-wrap: wrap;
+
     .button {
       flex-basis: 40%;
     }
