@@ -1,14 +1,32 @@
 import clsx from 'clsx'
 import { TimerProps } from './types'
+import { useEffect, useState } from 'react'
 
-export const Timer = ({ time = 0 }: TimerProps) => {
+export const Timer = ({ isActive }: TimerProps) => {
+  const [seconds, setSeconds] = useState<number>(0)
+
+  useEffect(() => {
+    let interval: number
+    if (isActive) {
+      interval = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds + 1)
+      }, 1000)
+    } else {
+      setSeconds(0)
+    }
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [isActive])
   return (
     <span
+      id='timer-value'
       className={clsx('time', {
-        inactive: time === 0,
+        inactive: seconds === 0,
       })}
     >
-      {time}
+      {seconds}
     </span>
   )
 }
