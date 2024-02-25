@@ -13,6 +13,7 @@ export const Cards = ({ cards, onGameComplete }: CardsProps) => {
   const handleCardFlip = (card: HTMLDivElement) => {
     if (lockedBoard) return
     if (!card.dataset.number) return
+    if (firstFlipped === card) return
     if (successFlipped.includes(card.dataset.number)) return
     card.classList.add('flipped')
     if (!firstFlipped) {
