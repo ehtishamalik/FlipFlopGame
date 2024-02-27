@@ -6,17 +6,13 @@
 }
 
 body {
-  background-color: $bg-color-game;
-  color: $color;
+  background-color: $bg-body;
+  color: $color-text;
   font-family: 'Nunito Sans', sans-serif;
 }
 
 input {
   font-family: inherit;
-}
-
-.bg-hover {
-  background-color: $btn-hover !important;
 }
 
 .animal-memory {
@@ -44,6 +40,7 @@ input {
 
   .button {
     border: none;
+    color: $button-color;
     background-color: transparent;
     font-size: 1rem;
     font-weight: 600;
@@ -54,7 +51,7 @@ input {
 
     &.selected,
     &:hover {
-      background-color: $btn-hover;
+      background-color: $button-hover;
     }
   }
 }
