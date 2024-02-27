@@ -1,5 +1,4 @@
 .leaderboard {
-  background-color: $bg-color-leaderboard;
   padding: 0.5rem;
   height: auto;
 
@@ -9,58 +8,33 @@
     text-transform: capitalize;
   }
 
-  .difficulty-selection {
-    background-color: $bg-LDS;
-  }
-
   .leaderboard-table {
     width: 100%;
     border-collapse: collapse;
 
-    th {
-      padding: 0.3rem;
-      text-align: center;
-      border: 0.1rem solid $color;
-      text-transform: capitalize;
+    tr {
+      display: inline-flex;
+      justify-content: space-between;
+      width: 90%;
+      border-radius: 1rem;
+      padding: 0.3rem 0.6rem;
+      box-shadow: $box-shadow;
+      margin-bottom: 1rem;
 
-      &:first-child,
-      &:last-child {
-        width: 20%;
-      }
+      th, td {
+        padding: 0.3rem;
+        text-align: center;
+        text-transform: capitalize;
+  
+        &:first-child {
+          flex-basis: 30%;
+          text-align: left;
+        }
 
-      &:nth-child(1) {
-        background-color: $bg-LP;
-      }
-
-      &:nth-child(2) {
-        background-color: $bg-LN;
-      }
-
-      &:nth-child(3) {
-        background-color: $bg-LT;
-      }
-    }
-
-    td {
-      padding: 0.3rem;
-      text-align: center;
-      border: 0.1rem solid $color;
-
-      &:first-child,
-      &:last-child {
-        width: 20%;
-      }
-
-      &:nth-child(1) {
-        background-color: $bg-LPL;
-      }
-
-      &:nth-child(2) {
-        background-color: $bg-LNL;
-      }
-
-      &:nth-child(3) {
-        background-color: $bg-LTL;
+        &:last-child {
+          flex-basis: 30%;
+          text-align: right;
+        }
       }
     }
   }
