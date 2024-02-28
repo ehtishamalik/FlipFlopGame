@@ -63,7 +63,8 @@ export const FlipFlopGame = ({
           <h2>Welcome to Animal Memory!</h2>
           <p>
             Ready to test your memory? Enter your name and start matching
-            adorable animal pairs.<br/> The clock is ticking, so have fun!
+            adorable animal pairs.
+            <br /> The clock is ticking, so have fun!
           </p>
         </>
       )}
