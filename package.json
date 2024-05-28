@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "python app.py",
     "watch": "yarn build && chokidar 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build'",
+    "lint": "eslint . --ext ts,tsx",
+    "lint:scss": "stylelint 'src/**/*.scss' --fix",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "freeze": "pip freeze > requirements.txt"
   },
@@ -15,7 +16,10 @@
     "chokidar-cli": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.77.2"
+    "sass": "^1.77.2",
+    "stylelint": "^16.6.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
