@@ -1,0 +1,11 @@
+{
+    "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
+    "rules": {
+        "color-no-invalid-hex": true,
+        "no-descending-specificity": true,
+        "color-no-hex": true,
+        "color-named": "always-where-possible",
+        "value-keyword-case": "lower",
+        "declaration-block-no-shorthand-property-overrides": true
+    }
+}
