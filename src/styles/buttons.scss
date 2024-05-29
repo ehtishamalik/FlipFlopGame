@@ -34,7 +34,9 @@
 
     &.tertiary {
         padding: 0;
+        color: $white;
         border: none;
+        opacity: $opacity-standard;
 
         &::after {
             position: absolute;
@@ -49,6 +51,8 @@
         }
 
         &:hover {
+            opacity: 1;
+
             &::after {
                 opacity: 1;
             }

@@ -19,12 +19,13 @@
             }
         }
 
-        &__links {
+        &__links,
+        &__buttons {
             display: inline-flex;
             align-items: center;
 
-            .ff-button {
-                margin: 0 1rem;
+            .ff-button:not(:last-child) {
+                margin: 0 1rem 0 0;
             }
         }
     }
