@@ -1,6 +1,6 @@
 export function NavBar() {
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="container navbar-container">
         <div className="navbar-container__logo">
           <figure>
@@ -16,6 +16,6 @@ export function NavBar() {
           </a>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }
