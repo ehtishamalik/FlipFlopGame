@@ -20,6 +20,9 @@
         }
 
         &__links {
+            display: inline-flex;
+            align-items: center;
+
             .ff-button {
                 margin: 0 1rem;
             }

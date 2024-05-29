@@ -1,3 +1,5 @@
+import { Button } from '../Button'
+
 export function NavBar() {
   return (
     <nav className="navbar">
@@ -8,12 +10,8 @@ export function NavBar() {
           </figure>
         </div>
         <div className="navbar-container__links">
-          <a href="/login" className="ff-button tertiary">
-            login
-          </a>
-          <a href="/signup" className="ff-button tertiary">
-            signup
-          </a>
+          <Button text="login" type="secondary" />
+          <Button text="register" type="primary" />
         </div>
       </div>
     </nav>

@@ -6,9 +6,11 @@
     font-weight: $button-font-weight;
     color: $button-color-primary;
     text-align: center;
+    text-transform: capitalize;
     vertical-align: bottom;
     touch-action: manipulation;
     cursor: pointer;
+    background: transparent;
     border: $button-border;
     border-radius: $button-border-radius;
     outline: 0;
@@ -17,12 +19,12 @@
     &.primary {
         color: $button-color-secondary;
         background: $button-color-primary;
-
+        
         &:hover {
             opacity: $opacity-standard;
         }
     }
-
+    
     &.secondary {
         &:hover {
             color: $button-color-secondary;
@@ -31,7 +33,6 @@
     }
 
     &.tertiary {
-        position: relative;
         padding: 0;
         border: none;
 
