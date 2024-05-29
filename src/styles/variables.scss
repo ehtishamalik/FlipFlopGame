@@ -1,0 +1,25 @@
+/* Colors */
+$white: white;
+$purple: rgb(156 11 224);
+$black: rgb(36 36 36);
+
+/* Text */
+$text-light: 400;
+$text-medium: 500;
+$text-bold: 600;
+$text-bolder: 700;
+$text-line-height: 1.2;
+
+
+$transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
+$opacity-standard: 80%;
+$max-width-standard: 90rem;
+
+/* Buttons */
+$button-color-primary: $purple;
+$button-color-secondary: $black;
+$button-border-radius: 1rem;
+$button-border: 0.1rem solid $purple;
+$button-font-size: 1rem;
+$button-font-weight: 500;
+$button-padding: 0.8rem 1.2rem;

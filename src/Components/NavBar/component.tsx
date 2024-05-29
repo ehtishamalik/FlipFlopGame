@@ -8,10 +8,10 @@ export function NavBar() {
           </figure>
         </div>
         <div className="navbar-container__links">
-          <a href="/login" className="button secondary">
+          <a href="/login" className="ff-button tertiary">
             login
           </a>
-          <a href="/signup" className="button primary">
+          <a href="/signup" className="ff-button tertiary">
             signup
           </a>
         </div>

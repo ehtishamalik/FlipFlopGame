@@ -12,9 +12,7 @@
     "format:ts": "prettier --write 'src/**/*.{ts,tsx,md}' --config ./.prettierrc.json",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "freeze": "pip freeze > requirements.txt",
-    "envup": "source .venv/bin/activate",
-    "envdown": "source deactivate"
+    "freeze": "pip freeze > requirements.txt"
   },
   "dependencies": {
     "chokidar-cli": "^3.0.0",

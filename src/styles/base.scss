@@ -1,10 +1,11 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    color: white;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: $text-light;
+    line-height: $text-line-height;
+    color: $white;
     color-scheme: light dark;
-    background-color: rgb(36 36 36);
+    background-color: $black;
     font-synthesis: none;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
@@ -29,6 +30,6 @@ a {
 }
 
 .container {
-    max-width: 90rem;
+    max-width: $max-width-standard;
     margin: 0 auto;
 }
