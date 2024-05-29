@@ -1,0 +1,22 @@
+.navbar {
+    .navbar-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+
+        &__logo {
+            figure {
+                cursor: pointer;
+
+                img {
+                    width: 8rem;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
