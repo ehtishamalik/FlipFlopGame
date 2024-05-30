@@ -3,7 +3,7 @@ import { Button } from '../Button'
 export function NavBar() {
   return (
     <nav className="navbar">
-      <div className="container navbar-container">
+      <div className="navbar-container">
         <div className="navbar-container__logo">
           <figure>
             <img src="/static/logo.svg" alt="Flip Flop logo" />

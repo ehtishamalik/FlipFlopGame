@@ -8,13 +8,14 @@
         &__logo {
             figure {
                 cursor: pointer;
+                transition: opacity $transition-standard;
 
                 img {
                     width: 8rem;
                 }
 
                 &:hover {
-                    opacity: 0.8;
+                    opacity: $opacity-standard;
                 }
             }
         }
