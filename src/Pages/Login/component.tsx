@@ -1,0 +1,37 @@
+import { Button } from '../../Components/Common/Button'
+import { TextField } from '../../Components/Common/TextField'
+
+export function Login() {
+  return (
+    <div className="auth-form">
+      <div className="auth-form__container">
+        <h1 className="auth-form__heading">Login</h1>
+        <div className="auth-form__item">
+          <TextField
+            id="username"
+            label="username"
+            size="medium"
+            type="text"
+            onChangeCallback={() => {}}
+          />
+        </div>
+        <div className="auth-form__item">
+          <TextField
+            id="password"
+            label="password"
+            size="medium"
+            type="password"
+            onChangeCallback={() => {}}
+          />
+        </div>
+        <div className="auth-form__button">
+          <Button text="login" type="secondary" />
+          <div className="auth-form__button--new">
+            <p>Don't have an account?</p>
+            <Button text="register" type="tertiary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

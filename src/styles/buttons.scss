@@ -21,7 +21,7 @@
         background: $button-color-primary;
         
         &:hover {
-            opacity: $opacity-standard;
+            box-shadow: $button-box-shadow;
         }
     }
     
@@ -29,6 +29,7 @@
         &:hover {
             color: $button-color-secondary;
             background: $button-color-primary;
+            box-shadow: $button-box-shadow;
         }
     }
 
@@ -46,6 +47,7 @@
             height: 0.12rem;
             content: "";
             background-color: $button-color-primary;
+            box-shadow: $button-tertiary-box-shadow;
             opacity: 0;
             transition: all 300ms cubic-bezier(.05, .03, .35, 1);
         }

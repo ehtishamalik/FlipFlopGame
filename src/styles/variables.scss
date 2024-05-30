@@ -1,20 +1,31 @@
 /* Colors */
 $white: white;
-$purple: rgb(156 11 224);
+$purple: rgb(143 124 236);
 $black: rgb(36 36 36);
+$black-light: rgb(36 32 38);
+$gray: rgb(91 91 91);
+$red: red;
 
-/* Text */
+/* Typography */
 $text-light: 400;
 $text-medium: 500;
 $text-bold: 600;
 $text-bolder: 700;
 $text-line-height: 1.2;
 $text-letter-spacing: 0.1rem;
+$font-size-h1: 2rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1rem;
+$font-size-p-small: 0.6rem;
+$font-size-p-medium: 0.7rem;
+$font-size-p-large: 0.8rem;
 
 // Standards
 $transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
 $opacity-standard: 80%;
 $max-width-standard: 90rem;
+$height-full: 35rem;
+$opacity-full: 100%;
 
 /* Buttons */
 $button-color-primary: $purple;
@@ -24,4 +35,15 @@ $button-border: 0.1rem solid $purple;
 $button-font-size: 1rem;
 $button-font-weight: 500;
 $button-padding: 0.5rem 1rem;
-$button-box-shadow: 0 0.1rem 0.2rem 0 $button-color-primary;
+$button-box-shadow: 0 0 1.5rem $button-color-primary;
+$button-tertiary-box-shadow: 0 0 1rem 0.2rem $button-color-primary;
+
+/* Text Field */
+$text-field-border: none;
+
+/* Login */
+$login-box-width: 25rem;
+$login-box-bg-color: $black-light;
+$login-box-padding: 2rem; 
+$login-box-border-radius: 1rem;
+$login-box-box-shadow: 0 1.5rem 2.5rem rgba($purple, 0.7);

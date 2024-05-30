@@ -6,17 +6,19 @@
     color-scheme: light dark;
 }
 
+body {
+    color: $white;
+    background-color: $black;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: Montserrat, sans-serif;
     font-style: normal;
-    font-weight: $text-light;
     line-height: $text-line-height;
-    color: $white;
     letter-spacing: $text-letter-spacing;
-    background-color: $black;
     
     &::before,
     &::after {
@@ -26,7 +28,28 @@
     }
 }
 
-a {
+h1 {
+    font-size: $font-size-h1;
+    font-weight: $text-bold;
+}
+
+h2 {
+    font-size: $font-size-h2;
+    font-weight: $text-bold;
+}
+
+h3 {
+    font-size: $font-size-h3;
+    font-weight: $text-bold;
+}
+
+p,
+a,
+li,
+span,
+div {
+    font-size: $font-size-p-medium;
+    font-weight: $text-light;
     text-decoration: none;
 }
 
