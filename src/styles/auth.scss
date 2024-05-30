@@ -1,0 +1,44 @@
+.auth-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $height-full;
+
+  .auth-form {
+    &__heading {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &__container {
+      width: $login-box-width;
+      padding: $login-box-padding;
+      background-color: $login-box-bg-color;
+      border-radius: $login-box-border-radius;
+      box-shadow: $login-box-box-shadow;
+    }
+
+    &__item {
+      margin-bottom: 1.5rem;
+    }
+    
+    &__button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+
+      &--new {
+        display: inline-flex;
+        flex-direction: column;
+
+        .ff-button {
+          margin: 0 auto;
+        }
+
+        p {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}

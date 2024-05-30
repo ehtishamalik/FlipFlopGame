@@ -4,5 +4,8 @@ export type TextFieldProps = {
   id: string
   size: 'small' | 'medium' | 'large'
   errorText?: string
-  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChangeCallback: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void
 }
