@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom'
-import { Button } from '../../Components/Common/Button'
-import { TextField } from '../../Components/Common/TextField'
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../../Components/Common/Button';
+import { TextField } from '../../Components/Common/TextField';
 
 export function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const redirectToRegister = () => {
-    navigate('/register')
-  }
+    navigate('/register');
+  };
   return (
     <div className="auth-form">
       <div className="auth-form__container">
@@ -42,5 +42,5 @@ export function Login() {
         </div>
       </div>
     </div>
-  )
+  );
 }

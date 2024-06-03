@@ -1,16 +1,16 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import { Button } from '../Button'
+import { useLocation, useNavigate, matchPath } from 'react-router-dom';
+import { Button } from '../Button';
 
 export function NavBar() {
-  const location = useLocation()
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
   const redirectTo = (path: string) => () => {
-    navigate(path)
-  }
+    navigate(path);
+  };
 
   const hideNavBar =
-    location.pathname === '/login' || location.pathname === '/register'
+    matchPath('login', pathname) || matchPath('register', pathname);
 
   return (
     !hideNavBar && (
@@ -40,5 +40,5 @@ export function NavBar() {
         </div>
       </nav>
     )
-  )
+  );
 }

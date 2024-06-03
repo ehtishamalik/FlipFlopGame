@@ -1,4 +1,4 @@
-import { ButtonProps } from './types'
+import { ButtonProps } from './types';
 
 export function Button({ text, type, onClickCallback }: ButtonProps) {
   return (
@@ -10,5 +10,5 @@ export function Button({ text, type, onClickCallback }: ButtonProps) {
     >
       {text}
     </button>
-  )
+  );
 }

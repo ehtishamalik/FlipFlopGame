@@ -1,12 +1,12 @@
-import { Button } from '../../Components/Common/Button'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '../../Components/Common/Button';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const redirectToLogin = () => {
-    navigate('/login')
-  }
+    navigate('/login');
+  };
   return (
     <header className="header">
       <div className="header-container">
@@ -17,5 +17,5 @@ export function Home() {
         />
       </div>
     </header>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-import { Button } from '../../Components/Common/Button'
-import { TextField } from '../../Components/Common/TextField'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '../../Components/Common/Button';
+import { TextField } from '../../Components/Common/TextField';
+import { useNavigate } from 'react-router-dom';
 
 export function Register() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const redirectToLogin = () => {
-    navigate('/login')
-  }
+    navigate('/login');
+  };
   return (
     <div className="auth-form">
       <div className="auth-form__container">
@@ -60,5 +60,5 @@ export function Register() {
         </div>
       </div>
     </div>
-  )
+  );
 }
