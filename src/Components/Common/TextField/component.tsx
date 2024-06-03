@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { TextFieldProps } from './types'
-import clsx from 'clsx'
+import { useState } from 'react';
+import { TextFieldProps } from './types';
+import clsx from 'clsx';
 
 export function TextField({
   id,
@@ -10,14 +10,14 @@ export function TextField({
   errorText,
   onChangeCallback,
 }: TextFieldProps) {
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>('');
   const onInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeCallback(value, event)
-  }
+    onChangeCallback(value, event);
+  };
 
   return (
     <div className="ff-field-text">
@@ -46,5 +46,5 @@ export function TextField({
       </div>
       {errorText && <p className="ff-field-text__invalid--text">{errorText}</p>}
     </div>
-  )
+  );
 }

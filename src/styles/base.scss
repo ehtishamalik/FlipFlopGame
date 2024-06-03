@@ -53,6 +53,10 @@ div {
     text-decoration: none;
 }
 
+.hidden {
+    display: none;
+}
+
 .container {
     max-width: $max-width-standard;
     margin: 0 auto;

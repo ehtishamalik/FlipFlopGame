@@ -1,6 +1,6 @@
 export type TextFieldProps = {
   label: string
-  type: 'text' | 'password'
+  type: 'text' | 'password' | 'email'
   id: string
   size: 'small' | 'medium' | 'large'
   errorText?: string

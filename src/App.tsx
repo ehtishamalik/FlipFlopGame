@@ -1,13 +1,13 @@
-import { NavBar } from './Components/Common/NavBar'
-import { Login } from './Pages/Login'
+import { Outlet } from 'react-router-dom';
+import { NavBar } from './Components/Common/NavBar';
 
 function App() {
   return (
     <div className="container">
       <NavBar />
-      <Login />
+      <Outlet />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

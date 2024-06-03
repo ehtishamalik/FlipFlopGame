@@ -1,9 +1,14 @@
-import { ButtonProps } from './types'
+import { ButtonProps } from './types';
 
-export function Button({ text, type }: ButtonProps) {
+export function Button({ text, type, onClickCallback }: ButtonProps) {
   return (
-    <button className={`ff-button ${type}`} type="button" role="button">
+    <button
+      className={`ff-button ${type}`}
+      type="button"
+      role="button"
+      onClick={onClickCallback}
+    >
       {text}
     </button>
-  )
+  );
 }
