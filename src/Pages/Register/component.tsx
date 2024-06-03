@@ -1,7 +1,12 @@
 import { Button } from '../../Components/Common/Button'
 import { TextField } from '../../Components/Common/TextField'
+import { useNavigate } from 'react-router-dom'
 
 export function Register() {
+  const navigate = useNavigate()
+  const redirectToLogin = () => {
+    navigate('/login')
+  }
   return (
     <div className="auth-form">
       <div className="auth-form__container">
@@ -46,7 +51,11 @@ export function Register() {
           <Button text="register" type="secondary" />
           <div className="auth-form__button--new">
             <p>already have an account?</p>
-            <Button text="login" type="tertiary" />
+            <Button
+              text="login"
+              type="tertiary"
+              onClickCallback={redirectToLogin}
+            />
           </div>
         </div>
       </div>
