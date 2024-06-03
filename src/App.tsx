@@ -1,11 +1,11 @@
 import { NavBar } from './Components/Common/NavBar'
-import { Login } from './Pages/Login'
+import { Register } from './Pages/Register'
 
 function App() {
   return (
     <div className="container">
       <NavBar />
-      <Login />
+      <Register />
     </div>
   )
 }

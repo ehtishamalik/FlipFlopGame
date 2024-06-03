@@ -10,7 +10,7 @@ export function Login() {
           <TextField
             id="username"
             label="username"
-            size="medium"
+            size="small"
             type="text"
             onChangeCallback={() => {}}
           />
@@ -19,7 +19,7 @@ export function Login() {
           <TextField
             id="password"
             label="password"
-            size="medium"
+            size="small"
             type="password"
             onChangeCallback={() => {}}
           />
@@ -27,7 +27,7 @@ export function Login() {
         <div className="auth-form__button">
           <Button text="login" type="secondary" />
           <div className="auth-form__button--new">
-            <p>Don't have an account?</p>
+            <p>don't have an account?</p>
             <Button text="register" type="tertiary" />
           </div>
         </div>

@@ -1,4 +1,5 @@
 /* Colors */
+$transparent: transparent;
 $white: white;
 $purple: rgb(143 124 236);
 $black: rgb(36 36 36);
@@ -40,6 +41,13 @@ $button-tertiary-box-shadow: 0 0 1rem 0.2rem $button-color-primary;
 
 /* Text Field */
 $text-field-border: none;
+$text-field-font-size-label: 0.8rem;
+$text-field-font-size-label-active: 0.6rem;
+$text-field-input-padding: 0 0.2rem;
+$text-field-background: $transparent;
+$text-field-font-size-small: 1rem;
+$text-field-font-size-medium: 1.2rem;
+$text-field-font-size-large: 1.4rem;
 
 /* Login */
 $login-box-width: 25rem;
