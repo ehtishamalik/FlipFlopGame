@@ -1,7 +1,9 @@
+import { DifficultyLevel } from '../../../types';
+
 export type DifficultySelectorProps = {
-  callback: (level: string) => void
+  callback: (level: DifficultyLevel) => void
 }
 export type diffultyOptionsProps = {
-  difficulty: string
+  difficulty: DifficultyLevel
   gridSize: number
 }[]

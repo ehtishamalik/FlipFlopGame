@@ -1,8 +1,9 @@
+import { DifficultyLevel } from '../../../types';
 import { diffultyOptions } from './constants';
 import { DifficultySelectorProps } from './types';
 
 export function DifficultySelector({ callback }: DifficultySelectorProps) {
-  const callbackHandler = (level: string) => () => {
+  const callbackHandler = (level: DifficultyLevel) => () => {
     callback(level);
   };
   return (
