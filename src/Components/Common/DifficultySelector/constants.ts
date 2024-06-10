@@ -1,20 +1,21 @@
+import { EASY, EXPERT, HARD, MEDIUM } from '../../../constants';
 import { diffultyOptionsProps } from './types';
 
 export const diffultyOptions: diffultyOptionsProps = [
   {
-    difficulty: 'easy',
+    difficulty: EASY,
     gridSize: 4,
   },
   {
-    difficulty: 'medium',
+    difficulty: MEDIUM,
     gridSize: 6,
   },
   {
-    difficulty: 'hard',
+    difficulty: HARD,
     gridSize: 8,
   },
   {
-    difficulty: 'expert',
+    difficulty: EXPERT,
     gridSize: 10,
   },
 ];

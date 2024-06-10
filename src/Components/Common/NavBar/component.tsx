@@ -18,7 +18,7 @@ export function NavBar() {
         <div className="navbar-container">
           <div className="navbar-container__logo">
             <figure onClick={redirectTo('/')}>
-              <img src="/static/logo.svg" alt="Flip Flop logo" />
+              <img src="images/logo.svg" alt="Flip Flop logo" />
             </figure>
           </div>
           <div className="navbar-container__links">

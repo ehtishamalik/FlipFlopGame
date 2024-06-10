@@ -1,8 +1,3 @@
-import { SET_DIFFICULTY } from '../constants';
+import { gameDifficultySlice } from './reducers/gameDifficultySlice';
 
-export const setDifficulty = (difficulty: string) => {
-  return {
-    type: SET_DIFFICULTY,
-    payload: difficulty,
-  };
-};
+export const { setValue } = gameDifficultySlice.actions;

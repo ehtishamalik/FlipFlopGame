@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './styles/index.scss';
+import { Provider } from 'react-redux';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { store } from './store';
 import { Home } from './Pages/Home/component.tsx';
 import { Login } from './Pages/Login/component.tsx';
 import { Register } from './Pages/Register/component.tsx';
+import { FlipFlop } from './Pages/FlipFlop/component.tsx';
+import './styles/index.scss';
+import App from './App.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,12 +32,19 @@ const router = createBrowserRouter([
         element: <Register />,
         caseSensitive: true,
       },
+      {
+        path: '/game',
+        element: <FlipFlop />,
+        caseSensitive: true,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

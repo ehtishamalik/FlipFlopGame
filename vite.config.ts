@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/static/dist',
   build: {
     rollupOptions: {
       output: {
@@ -13,6 +12,5 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`
       }
     },
-    outDir: 'static/dist'
   }
 });
