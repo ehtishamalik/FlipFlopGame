@@ -1,19 +1,20 @@
 {
   "name": "flipflopgame",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "pip": "pip install -r requirements.txt",
-    "dev": "python app.py",
-    "watch": "chokidar 'src/**/*.ts' 'index.html' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build'",
-    "lint": "yarn format:scss && yarn format:ts && yarn lint:ts",
-    "lint:ts": "eslint . --ext ts,tsx --fix",
-    "format:scss": "stylelint 'src/**/*.scss' --fix",
+    "server": "flask --app app run",
+    "server:debug": "flask --app app run --debug",
+    "lint:ts": "eslint . --ext ts,tsx",
+    "format:scss": "stylelint 'src/**/*.scss'",
     "format:ts": "prettier --write 'src/**/*.{ts,tsx,md}' --config ./.prettierrc.json",
+    "lint": "yarn format:ts && yarn format:scss --fix && yarn lint:ts --fix",
     "build": "tsc && vite build",
+    "watch": "chokidar 'src/**/*.ts' 'index.html' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build'",
     "preview": "vite preview",
-    "freeze": "pip freeze > requirements.txt"
+    "pip:install": "pip install -r requirements.txt",
+    "pip:freeze": "pip freeze > requirements.txt"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
