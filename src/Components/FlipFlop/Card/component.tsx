@@ -3,7 +3,7 @@ import { CardProps } from './types';
 
 export function Card({ imageLink }: CardProps) {
   const [imageError, setImageError] = useState(false);
-  const placeholderImage = 'static/placeholder.svg';
+  const placeholderImage = 'images/placeholder.svg';
 
   const handleImageError = () => {
     setImageError(true);
@@ -17,7 +17,7 @@ export function Card({ imageLink }: CardProps) {
     >
       <figure className="card__back">
         <img
-          src="static/back.png"
+          src="images/back.png"
           alt="back image of card"
           className="card__back--img"
         />
