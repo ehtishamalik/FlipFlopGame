@@ -11,7 +11,7 @@
     "format:ts": "prettier --write 'src/**/*.{ts,tsx,md}' --config ./.prettierrc.json",
     "lint": "yarn format:ts && yarn format:scss --fix && yarn lint:ts --fix",
     "build": "tsc && vite build",
-    "watch": "chokidar 'src/**/*.ts' 'index.html' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build'",
+    "watch": "chokidar 'src/**/*.ts' 'index.html' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build --minify=false'",
     "preview": "vite preview",
     "pip:install": "pip install -r requirements.txt",
     "pip:freeze": "pip freeze > requirements.txt"
