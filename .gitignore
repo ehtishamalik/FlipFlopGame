@@ -23,5 +23,6 @@ dist-ssr
 *.sw?
 
 # Flask
-.venv
 __pycache__
+.venv
+dist
