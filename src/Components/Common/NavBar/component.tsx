@@ -9,11 +9,11 @@ export function NavBar() {
     navigate(path);
   };
 
-  const hideNavBar =
-    matchPath('login', pathname) || matchPath('register', pathname);
+  const showNavBar =
+    !(matchPath('login', pathname) || matchPath('register', pathname));
 
   return (
-    !hideNavBar && (
+    showNavBar && (
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-container__logo">
