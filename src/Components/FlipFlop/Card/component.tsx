@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CardProps } from './types';
 
-export function Card({ imageLink }: CardProps) {
+export function Card({ image }: CardProps) {
   const [imageError, setImageError] = useState(false);
   const placeholderImage = 'images/placeholder.svg';
 
@@ -9,11 +9,16 @@ export function Card({ imageLink }: CardProps) {
     setImageError(true);
   };
 
+  const handleCardFlip = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.currentTarget.classList.toggle('flipped')
+  };
+
   return (
     <button
       type="button"
       className="card"
-      onClick={(event) => event.currentTarget.classList.toggle('flipped')}
+      data-id={image}
+      onClick={handleCardFlip}
     >
       <figure className="card__back">
         <img
@@ -31,7 +36,7 @@ export function Card({ imageLink }: CardProps) {
           />
         ) : (
           <img
-            src={imageLink}
+            src={`images/${image}.png`}
             alt="front image of card"
             className="card__front--img"
             onError={handleImageError}

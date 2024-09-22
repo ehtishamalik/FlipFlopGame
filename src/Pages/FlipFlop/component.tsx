@@ -5,8 +5,8 @@ export function FlipFlop() {
     <section className="flip-flop">
       <div className="flip-flop__container">
         <div className="flip-flop__grid">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 900].map((index) => (
-            <Card imageLink={`images/${index}.png`} />
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((img) => (
+            <Card image={img} />
           ))}
         </div>
       </div>

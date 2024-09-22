@@ -1,3 +1,3 @@
 export type CardProps = {
-  imageLink: string
+  image: number
 }
