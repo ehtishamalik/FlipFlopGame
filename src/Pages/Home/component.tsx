@@ -5,7 +5,7 @@ export function Home() {
   const navigate = useNavigate();
 
   const redirectToLogin = () => {
-    navigate('/game');
+    navigate('/gamedifficulty');
   };
   return (
     <header className="header">

@@ -9,8 +9,8 @@
 
     &__grid {
       display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(var(--grid-template), 1fr);
+      grid-template-columns: repeat(var(--grid-template), 1fr);
       gap: 1rem;
       place-items: center center;
       justify-content: center;

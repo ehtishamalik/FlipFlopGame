@@ -9,6 +9,7 @@ import { Register } from './Pages/Register/component.tsx';
 import { FlipFlop } from './Pages/FlipFlop/component.tsx';
 import './styles/index.scss';
 import App from './App.tsx';
+import { DifficultySelector } from './Components/Common/DifficultySelector/component.tsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+        caseSensitive: true,
+      },
+      {
+        path: '/gamedifficulty',
+        element: <DifficultySelector callback={() => {}} />,
         caseSensitive: true,
       },
       {

@@ -1,3 +1,4 @@
 export type CardProps = {
-  image: number
+  imageName: number
+  onClickCallback: (imageName: number, currentTarget: HTMLButtonElement) => void
 }

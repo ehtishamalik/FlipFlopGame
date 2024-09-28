@@ -9,8 +9,9 @@ export function NavBar() {
     navigate(path);
   };
 
-  const showNavBar =
-    !(matchPath('login', pathname) || matchPath('register', pathname));
+  const showNavBar = !(
+    matchPath('login', pathname) || matchPath('register', pathname)
+  );
 
   return (
     showNavBar && (
