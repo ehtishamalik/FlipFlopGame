@@ -25,8 +25,18 @@ export function NavBar() {
             </figure>
           </div>
           <div className="navbar-container__links">
-          {isNotHome && <Button text="home" type="tertiary" onClickCallback={redirectTo('/')} />}
-            <Button text="difficulty" type="tertiary" onClickCallback={redirectTo('/gamedifficulty')} />
+            {isNotHome && (
+              <Button
+                text="home"
+                type="tertiary"
+                onClickCallback={redirectTo('/')}
+              />
+            )}
+            <Button
+              text="difficulty"
+              type="tertiary"
+              onClickCallback={redirectTo('/gamedifficulty')}
+            />
             <Button text="scoreboard" type="tertiary" />
           </div>
           <div className="navbar-container__buttons">

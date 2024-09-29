@@ -6,7 +6,7 @@ export const generateRandomArray = (length: number): number[] => {
   for (let i = 1; numbers.length < length; i++) {
     const randomNumber = Math.floor(Math.random() * maxNumber) + minNumber;
     if (!numbers.includes(randomNumber))
-    numbers.push(randomNumber, randomNumber); // Push each number twice
+      numbers.push(randomNumber, randomNumber); // Push each number twice
   }
 
   // Trim the array if it exceeds the desired length due to the double push

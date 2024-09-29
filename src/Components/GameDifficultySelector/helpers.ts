@@ -7,7 +7,7 @@ export const getDiffultyOptions = (): DiffultyOptionsProps => {
   return difficulties.map((difficulty) => {
     return {
       difficulty,
-      gridSize: diffultyOptions[difficulty]
-    }
+      gridSize: diffultyOptions[difficulty],
+    };
   });
 };

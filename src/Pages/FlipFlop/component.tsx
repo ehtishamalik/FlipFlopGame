@@ -4,33 +4,10 @@ import { generateRandomArray } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import { diffultyOptions } from '../../constants';
+import { diffultyOptions, EASY } from '../../constants';
 
 export function FlipFlop() {
-  const difficulty = useSelector((state: RootState) => state.gameDifficulty.level);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!difficulty) {
-      navigate('/gamedifficulty');
-    }
-  }, [difficulty]);
-
-  if (!difficulty) return null; // Return null early if difficulty is not set
-
-  const difficultyNumber: number = diffultyOptions[difficulty];
-  const cardLength: number = difficultyNumber * difficultyNumber;
-  const uniqueCardsNumber: number = cardLength / 2;
-
-  // Memoize the random card array to avoid recalculating
-  const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
-
-  const gridStyles = useMemo(
-    () => ({
-      '--grid-template': `${difficultyNumber}`,
-    } as React.CSSProperties),
-    [difficultyNumber]
-  );
 
   const firstCard = useRef<HTMLButtonElement | null>(null);
   const firstCardNumber = useRef<number | null>(null);
@@ -39,6 +16,33 @@ export function FlipFlop() {
   const secondCardNumber = useRef<number | null>(null);
 
   const alreadyFlipped = useRef<number[]>([]);
+
+  const difficulty = useSelector(
+    (state: RootState) => state.gameDifficulty.level
+  );
+
+  const difficultyNumber: number = diffultyOptions[difficulty ?? EASY];
+  const cardLength: number = difficultyNumber * difficultyNumber;
+  const uniqueCardsNumber: number = cardLength / 2;
+
+  // Memoize the random card array to avoid recalculating
+  const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
+
+  const gridStyles = useMemo(
+    () =>
+      ({
+        '--grid-template': `${difficultyNumber}`,
+      }) as React.CSSProperties,
+    [difficultyNumber]
+  );
+
+  useEffect(() => {
+    if (!difficulty) {
+      navigate('/gamedifficulty');
+    }
+  }, [difficulty, navigate]);
+
+  if (!difficulty) return null; // Return null early if difficulty is not set
 
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
     if (alreadyFlipped.current.includes(imageName)) return;

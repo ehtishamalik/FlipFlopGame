@@ -9,7 +9,7 @@ export function GameDifficultySelector() {
   const options = useMemo(() => getDiffultyOptions(), []);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  
+
   const callbackHandler = (level: DifficultyLevel) => () => {
     dispatch(setgameDifficulty(level));
     navigate('/game');
