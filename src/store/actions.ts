@@ -1,3 +1,3 @@
-import { gameDifficultySlice } from './reducers/gameDifficultySlice';
+import { gameDifficultySlice } from './states/gameDifficultySlice';
 
-export const { setValue } = gameDifficultySlice.actions;
+export const { setgameDifficulty } = gameDifficultySlice.actions;

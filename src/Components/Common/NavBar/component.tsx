@@ -9,11 +9,14 @@ export function NavBar() {
     navigate(path);
   };
 
-  const hideNavBar =
-    matchPath('login', pathname) || matchPath('register', pathname);
+  const showNavBar = !(
+    matchPath('login', pathname) || matchPath('register', pathname)
+  );
+
+  const isNotHome = pathname !== '/';
 
   return (
-    !hideNavBar && (
+    showNavBar && (
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-container__logo">
@@ -22,7 +25,18 @@ export function NavBar() {
             </figure>
           </div>
           <div className="navbar-container__links">
-            <Button text="play" type="tertiary" />
+            {isNotHome && (
+              <Button
+                text="home"
+                type="tertiary"
+                onClickCallback={redirectTo('/')}
+              />
+            )}
+            <Button
+              text="difficulty"
+              type="tertiary"
+              onClickCallback={redirectTo('/gamedifficulty')}
+            />
             <Button text="scoreboard" type="tertiary" />
           </div>
           <div className="navbar-container__buttons">

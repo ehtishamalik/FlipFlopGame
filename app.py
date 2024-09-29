@@ -6,6 +6,7 @@ app = Flask(__name__, static_folder='dist', static_url_path='/')
 app.config["SECRET_KEY"] = os.urandom(24).hex()
 
 @app.route('/')
+@app.route('/game')
 def index():
     return send_from_directory(app.static_folder, 'index.html')
 

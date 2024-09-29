@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { DifficultyLevel } from '../../types';
+import { gameDifficultySliceName } from '../../constants';
 
 interface GameDifficultyState {
   level: DifficultyLevel | null
@@ -10,10 +11,10 @@ const initialState: GameDifficultyState = {
 };
 
 export const gameDifficultySlice = createSlice({
-  name: 'gameDifficulty',
+  name: gameDifficultySliceName,
   initialState,
   reducers: {
-    setValue: (state, { payload }: PayloadAction<DifficultyLevel>) => {
+    setgameDifficulty: (state, { payload }: PayloadAction<DifficultyLevel>) => {
       state.level = payload;
     },
   },

@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import gameDifficultyReducer from './reducers/gameDifficultySlice';
+import gameDifficultyReducer from './states/gameDifficultySlice';
 
 export const store = configureStore({
   reducer: {
