@@ -1,15 +1,39 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import { Card } from '../../Components/FlipFlop/Card';
 import { generateRandomArray } from './helpers';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { useNavigate } from 'react-router-dom';
+import { diffultyOptions } from '../../constants';
 
 export function FlipFlop() {
-  const difficutyNumber: number = 4;
-  const cardLength: number = difficutyNumber * difficutyNumber;
+  const difficulty = useSelector((state: RootState) => state.gameDifficulty.level);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!difficulty) {
+      console.log("called");
+      
+      navigate('/gamedifficulty');
+      return
+    }
+  }, [difficulty, navigate]);
+
+  if (!difficulty) return null; // Return null early if difficulty is not set
+
+  const difficultyNumber: number = diffultyOptions[difficulty];
+  const cardLength: number = difficultyNumber * difficultyNumber;
   const uniqueCardsNumber: number = cardLength / 2;
 
-  const gridStyles = {
-    '--grid-template': `${difficutyNumber}`,
-  } as React.CSSProperties;
+  // Memoize the random card array to avoid recalculating
+  const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
+
+  const gridStyles = useMemo(
+    () => ({
+      '--grid-template': `${difficultyNumber}`,
+    } as React.CSSProperties),
+    [difficultyNumber]
+  );
 
   const firstCard = useRef<HTMLButtonElement | null>(null);
   const firstCardNumber = useRef<number | null>(null);
@@ -17,7 +41,6 @@ export function FlipFlop() {
   const secondCard = useRef<HTMLButtonElement | null>(null);
   const secondCardNumber = useRef<number | null>(null);
 
-  const cards = useRef<number[]>(generateRandomArray(cardLength));
   const alreadyFlipped = useRef<number[]>([]);
 
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
@@ -32,14 +55,14 @@ export function FlipFlop() {
       secondCardNumber.current = imageName;
       currentTarget.classList.add('flipped');
 
-      checkCards(imageName);
+      checkCards();
     }
   };
 
-  const checkCards = (imageName: number) => {
+  const checkCards = () => {
     if (firstCard.current && secondCard.current) {
       if (firstCardNumber.current === secondCardNumber.current) {
-        alreadyFlipped.current.push(imageName);
+        alreadyFlipped.current.push(firstCardNumber.current!);
         resetCardStates();
         checkGameCompletion();
       } else {
@@ -69,8 +92,8 @@ export function FlipFlop() {
   return (
     <section className="flip-flop">
       <div className="flip-flop__container">
-        <div className="flip-flop__grid flip-flop__grid--" style={gridStyles}>
-          {cards.current.map((img) => (
+        <div className="flip-flop__grid" style={gridStyles}>
+          {cards.map((img) => (
             <Card imageName={img} onClickCallback={onCardFlip} />
           ))}
         </div>
