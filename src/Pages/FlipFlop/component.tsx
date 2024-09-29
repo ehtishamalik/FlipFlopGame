@@ -3,9 +3,9 @@ import { Card } from '../../Components/FlipFlop/Card';
 import { generateRandomArray } from './helpers';
 
 export function FlipFlop() {
-  const difficutyNumber: number = 6;
+  const difficutyNumber: number = 4;
   const cardLength: number = difficutyNumber * difficutyNumber;
-  const uniqueCardsNumber: number = difficutyNumber * 2;
+  const uniqueCardsNumber: number = cardLength / 2;
 
   const gridStyles = {
     '--grid-template': `${difficutyNumber}`,
