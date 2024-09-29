@@ -1,12 +1,20 @@
-import { DifficultyLevel } from '../../../types';
+import { useMemo } from 'react';
+import { DifficultyLevel } from '../../types';
 import { getDiffultyOptions } from './helpers';
-import { DifficultySelectorProps } from './types';
+import { useDispatch } from 'react-redux';
+import { AppDispatch, setgameDifficulty } from '../../store';
+import { useNavigate } from 'react-router-dom';
 
-export function DifficultySelector({ callback }: DifficultySelectorProps) {
-  const options = getDiffultyOptions();
+export function GameDifficultySelector() {
+  const options = useMemo(() => getDiffultyOptions(), []);
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  
   const callbackHandler = (level: DifficultyLevel) => () => {
-    callback(level);
+    dispatch(setgameDifficulty(level));
+    navigate('/game');
   };
+
   return (
     <section className="difficulty-selector">
       <div className="difficulty-selector__container">

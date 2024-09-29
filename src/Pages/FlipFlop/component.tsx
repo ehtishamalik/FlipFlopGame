@@ -12,12 +12,9 @@ export function FlipFlop() {
 
   useEffect(() => {
     if (!difficulty) {
-      console.log("called");
-      
       navigate('/gamedifficulty');
-      return
     }
-  }, [difficulty, navigate]);
+  }, [difficulty]);
 
   if (!difficulty) return null; // Return null early if difficulty is not set
 

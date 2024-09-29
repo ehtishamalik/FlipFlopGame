@@ -9,7 +9,7 @@ import { Register } from './Pages/Register/component.tsx';
 import { FlipFlop } from './Pages/FlipFlop/component.tsx';
 import './styles/index.scss';
 import App from './App.tsx';
-import { DifficultySelector } from './Components/Common/DifficultySelector/component.tsx';
+import { GameDifficultySelector } from './Components/GameDifficultySelector';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/gamedifficulty',
-        element: <DifficultySelector callback={() => {}} />,
+        element: <GameDifficultySelector />,
         caseSensitive: true,
       },
       {

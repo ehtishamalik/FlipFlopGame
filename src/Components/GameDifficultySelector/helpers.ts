@@ -1,5 +1,5 @@
-import { diffultyOptions } from '../../../constants';
-import { DifficultyLevel } from '../../../types';
+import { diffultyOptions } from '../../constants';
+import { DifficultyLevel } from '../../types';
 import { DiffultyOptionsProps } from './types';
 
 export const getDiffultyOptions = (): DiffultyOptionsProps => {
