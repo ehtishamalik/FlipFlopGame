@@ -6,6 +6,8 @@ app = Flask(__name__, static_folder='dist', static_url_path='/')
 app.config["SECRET_KEY"] = os.urandom(24).hex()
 
 @app.route('/')
+@app.route('/login')
+@app.route('/register')
 @app.route('/game')
 @app.route('/gamedifficulty')
 def index():

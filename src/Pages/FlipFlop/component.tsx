@@ -39,6 +39,7 @@ export function FlipFlop() {
 
   useEffect(() => {
     if (!difficulty) {
+      toast.error("Please select game difficulty.")
       navigate('/gamedifficulty');
     }
   }, [difficulty, navigate]);
@@ -89,7 +90,6 @@ export function FlipFlop() {
     if (alreadyFlipped.current.length === uniqueCardsNumber) {
       toast('Congratulations, you have completed the game in 50 seconds!', {
         icon: <span>🥳</span>,
-        autoClose: 3000,
       });
     }
   };
