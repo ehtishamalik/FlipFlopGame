@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { diffultyOptions, EASY } from '../../constants';
+import { toast } from 'react-toastify';
 
 export function FlipFlop() {
   const navigate = useNavigate();
@@ -86,7 +87,10 @@ export function FlipFlop() {
 
   const checkGameCompletion = () => {
     if (alreadyFlipped.current.length === uniqueCardsNumber) {
-      console.log('Congratulations');
+      toast('Congratulations, you have completed the game in 50 seconds!', {
+        icon: <span>🥳</span>,
+        autoClose: 3000,
+      });
     }
   };
 

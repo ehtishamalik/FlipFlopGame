@@ -7,6 +7,7 @@ app.config["SECRET_KEY"] = os.urandom(24).hex()
 
 @app.route('/')
 @app.route('/game')
+@app.route('/gamedifficulty')
 def index():
     return send_from_directory(app.static_folder, 'index.html')
 
