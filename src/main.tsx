@@ -10,7 +10,6 @@ import { FlipFlop } from './Pages/FlipFlop/component.tsx';
 import App from './App.tsx';
 import { GameDifficultySelector } from './Components/GameDifficultySelector';
 
-import 'react-toastify/dist/ReactToastify.css';
 import './styles/index.scss';
 
 const router = createBrowserRouter([

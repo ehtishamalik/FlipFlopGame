@@ -4,7 +4,7 @@ import { generateRandomArray } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import { diffultyOptions, EASY } from '../../constants';
+import { diffultyOptions } from '../../constants';
 import { toast } from 'react-toastify';
 
 export function FlipFlop() {
@@ -22,7 +22,7 @@ export function FlipFlop() {
     (state: RootState) => state.gameDifficulty.level
   );
 
-  const difficultyNumber: number = diffultyOptions[difficulty ?? EASY];
+  const difficultyNumber: number = difficulty ? diffultyOptions[difficulty] : 0;
   const cardLength: number = difficultyNumber * difficultyNumber;
   const uniqueCardsNumber: number = cardLength / 2;
 
@@ -39,12 +39,10 @@ export function FlipFlop() {
 
   useEffect(() => {
     if (!difficulty) {
-      toast.error("Please select game difficulty.")
+      toast.error('Please select game difficulty.', { autoClose: 3000 });
       navigate('/gamedifficulty');
     }
   }, [difficulty, navigate]);
-
-  if (!difficulty) return null; // Return null early if difficulty is not set
 
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
     if (alreadyFlipped.current.includes(imageName)) return;

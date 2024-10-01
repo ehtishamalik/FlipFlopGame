@@ -12,11 +12,5 @@ export const generateRandomArray = (length: number): number[] => {
   // Trim the array if it exceeds the desired length due to the double push
   numbers.length = length;
 
-  // Shuffle the array using the Fisher-Yates algorithm
-  for (let i = numbers.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[numbers[i], numbers[j]] = [numbers[j], numbers[i]]; // Swap elements
-  }
-
-  return numbers;
+  return numbers.sort(() => 0.5 - Math.random());
 };
