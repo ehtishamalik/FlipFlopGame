@@ -57,60 +57,50 @@ $login-box-padding: 2rem;
 $login-box-border-radius: 1rem;
 $login-box-box-shadow: 0 1.5rem 2.5rem rgba($purple, 0.7);
 
-/*Toastify */
+/* Toastify */
 $toastify-color-light: white;
-$toastify-color-dark: rgb(18, 18, 18);
-$toastify-color-info: rgb(52, 152, 219);
-$toastify-color-success: rgb(7, 188, 12);
-$toastify-color-warning: rgb(241, 196, 15);
-$toastify-color-error: rgb(231, 76, 60);
-$toastify-color-transparent: rgba(255, 255, 255, 0.7);
-
+$toastify-color-dark: rgb(18 18 18);
+$toastify-color-info: rgb(52 152 219);
+$toastify-color-success: rgb(7 188 12);
+$toastify-color-warning: rgb(241 196 15);
+$toastify-color-error: rgb(231 76 60);
+$toastify-color-transparent: rgb(255 255 255 / 70%);
 $toastify-icon-color-info: $toastify-color-info;
 $toastify-icon-color-success: $toastify-color-success;
 $toastify-icon-color-warning: $toastify-color-warning;
 $toastify-icon-color-error: $toastify-color-error;
-
 $toastify-toast-width: 320px;
 $toastify-toast-offset: 16px;
 $toastify-toast-top: max($toastify-toast-offset, env(safe-area-inset-top));
 $toastify-toast-right: max($toastify-toast-offset, env(safe-area-inset-right));
 $toastify-toast-left: max($toastify-toast-offset, env(safe-area-inset-left));
 $toastify-toast-bottom: max($toastify-toast-offset, env(safe-area-inset-bottom));
-
 $toastify-toast-background: white;
 $toastify-toast-min-height: 64px;
 $toastify-toast-max-height: 800px;
 $toastify-toast-bd-radius: 6px;
-
 $toastify-font-family: sans-serif;
 $toastify-z-index: 9999;
-
-$toastify-text-color-light: rgb(117, 117, 117);
+$toastify-text-color-light: rgb(117 117 117);
 $toastify-text-color-dark: white;
 $toastify-text-color-info: white;
 $toastify-text-color-success: white;
 $toastify-text-color-warning: white;
 $toastify-text-color-error: white;
-
-$toastify-spinner-color: rgb(97, 97, 97);
-$toastify-spinner-color-empty-area: rgb(224, 224, 224);
-
+$toastify-spinner-color: rgb(97 97 97);
+$toastify-spinner-color-empty-area: rgb(224 224 224);
 $toastify-color-progress-light: linear-gradient(
   to right,
-  rgb(76, 217, 100),
-  rgb(90, 200, 250),
-  rgb(0, 122, 255),
-  rgb(52, 170, 220),
-  rgb(88, 86, 214),
-  rgb(255, 45, 85)
+  rgb(76 217 100),
+  rgb(90 200 250),
+  rgb(0 122 255),
+  rgb(52 170 220),
+  rgb(88 86 214),
+  rgb(255 45 85)
 );
-$toastify-color-progress-dark: rgb(187, 134, 252);
-
+$toastify-color-progress-dark: rgb(187 134 252);
 $toastify-color-progress-info: $toastify-color-info;
 $toastify-color-progress-success: $toastify-color-success;
 $toastify-color-progress-warning: $toastify-color-warning;
 $toastify-color-progress-error: $toastify-color-error;
-
 $toastify-color-progress-bgo: 0.2;
-

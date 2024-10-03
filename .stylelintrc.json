@@ -1,11 +1,21 @@
 {
     "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
     "rules": {
-        "color-no-invalid-hex": true,
         "no-descending-specificity": true,
         "color-no-hex": true,
         "color-named": "always-where-possible",
         "value-keyword-case": "lower",
-        "declaration-block-no-shorthand-property-overrides": true
+        "declaration-block-no-shorthand-property-overrides": true,
+        "length-zero-no-unit": true,
+        "font-weight-notation": "numeric",
+        "declaration-block-no-duplicate-properties": true,
+        "shorthand-property-no-redundant-values": true,
+        "selector-max-id": 0,
+        "unit-no-unknown": true,
+        "function-url-quotes": "always",
+        "function-calc-no-unspaced-operator": true,
+        "comment-whitespace-inside": "always",
+        "no-duplicate-selectors": true,
+        "block-no-empty": true
     }
 }
