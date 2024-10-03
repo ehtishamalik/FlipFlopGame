@@ -7,9 +7,10 @@ import { Home } from './Pages/Home/component.tsx';
 import { Login } from './Pages/Login/component.tsx';
 import { Register } from './Pages/Register/component.tsx';
 import { FlipFlop } from './Pages/FlipFlop/component.tsx';
-import './styles/index.scss';
 import App from './App.tsx';
 import { GameDifficultySelector } from './Components/GameDifficultySelector';
+
+import './styles/index.scss';
 
 const router = createBrowserRouter([
   {

@@ -4,4 +4,4 @@ export type DifficultyLevel =
   | typeof EASY
   | typeof MEDIUM
   | typeof HARD
-  | typeof EXPERT
+  | typeof EXPERT;

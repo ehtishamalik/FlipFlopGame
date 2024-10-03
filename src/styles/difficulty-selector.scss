@@ -35,10 +35,6 @@
       &:hover {
         background: rgba($gray, $opacity-standard);
         transform: scale(1.05);
-
-        span {
-          color: $purple;
-        }
       }
     }
   }

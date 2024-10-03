@@ -3,7 +3,7 @@ import { DifficultyLevel } from '../../types';
 import { gameDifficultySliceName } from '../../constants';
 
 interface GameDifficultyState {
-  level: DifficultyLevel | null
+  level: DifficultyLevel | null;
 }
 
 const initialState: GameDifficultyState = {
