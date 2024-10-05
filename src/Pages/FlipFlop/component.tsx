@@ -6,9 +6,13 @@ import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { diffultyOptions } from '../../constants';
 import { toast } from 'react-toastify';
+import { Counter } from '../../Components/FlipFlop/Counter';
+import { CounterRef } from '../../Components/FlipFlop/Counter';
 
 export function FlipFlop() {
   const navigate = useNavigate();
+
+  const counterRef = useRef<CounterRef>(null);
 
   const firstCard = useRef<HTMLButtonElement | null>(null);
   const firstCardNumber = useRef<number | null>(null);
@@ -21,6 +25,8 @@ export function FlipFlop() {
   const difficulty = useSelector(
     (state: RootState) => state.gameDifficulty.level
   );
+
+  const seconds = useSelector((state: RootState) => state.counter.seconds);
 
   const difficultyNumber: number = difficulty ? diffultyOptions[difficulty] : 0;
   const cardLength: number = difficultyNumber * difficultyNumber;
@@ -48,6 +54,8 @@ export function FlipFlop() {
     if (alreadyFlipped.current.includes(imageName)) return;
 
     if (firstCard.current === null) {
+      counterStart();
+
       firstCard.current = currentTarget;
       firstCardNumber.current = imageName;
       currentTarget.classList.add('flipped');
@@ -86,21 +94,33 @@ export function FlipFlop() {
 
   const checkGameCompletion = () => {
     if (alreadyFlipped.current.length === uniqueCardsNumber) {
-      toast('Congratulations, you have completed the game in 50 seconds!', {
+      toast(`Congratulations, you have completed the game in ${seconds} seconds!`, {
         icon: <span>🥳</span>,
       });
+      counterStop();
     }
   };
 
+  const counterStart = () => {
+    if (counterRef.current) counterRef.current.start();
+  };
+
+  const counterStop = () => {
+    if (counterRef.current) counterRef.current.stop();
+  };
+
   return (
-    <section className="flip-flop">
-      <div className="flip-flop__container">
-        <div className="flip-flop__grid" style={gridStyles}>
-          {cards.map((img) => (
-            <Card imageName={img} onClickCallback={onCardFlip} />
-          ))}
+    <>
+      <Counter ref={counterRef} />
+      <section className="flip-flop">
+        <div className="flip-flop__container">
+          <div className="flip-flop__grid" style={gridStyles}>
+            {cards.map((img) => (
+              <Card imageName={img} onClickCallback={onCardFlip} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
