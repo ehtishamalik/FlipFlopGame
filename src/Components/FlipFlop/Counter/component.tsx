@@ -31,7 +31,7 @@ export const Counter = forwardRef<CounterRef, CounterProps>((props, ref) => {
 
   return (
     <section className="counter">
-      <div className="counter__inner">
+      <div className="counter__container">
         <div className="counter__moves">
           <p className="counter__moves--text">Moves Count</p>
           <p className="counter__moves--value">{props.movesCount}</p>

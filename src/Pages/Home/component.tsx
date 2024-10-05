@@ -9,10 +9,10 @@ export function Home() {
   };
   return (
     <header className="header">
-      <div className="header-container">
+      <div className="header__container">
         <Button
           text="Start Playing"
-          type="secondary"
+          type="primary"
           onClickCallback={redirectToLogin}
         />
       </div>
