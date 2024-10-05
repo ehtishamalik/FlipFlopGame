@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { Card } from '../../Components/FlipFlop/Card';
 import { generateRandomArray } from './helpers';
 import { useSelector } from 'react-redux';
@@ -11,6 +11,8 @@ import { CounterRef } from '../../Components/FlipFlop/Counter';
 
 export function FlipFlop() {
   const navigate = useNavigate();
+
+  const [movesCount, setmovesCount] = useState<number>(0);
 
   const counterRef = useRef<CounterRef>(null);
 
@@ -64,6 +66,7 @@ export function FlipFlop() {
       secondCardNumber.current = imageName;
       currentTarget.classList.add('flipped');
 
+      setmovesCount(() => movesCount + 1);
       checkCards();
     }
   };
@@ -94,9 +97,12 @@ export function FlipFlop() {
 
   const checkGameCompletion = () => {
     if (alreadyFlipped.current.length === uniqueCardsNumber) {
-      toast(`Congratulations, you have completed the game in ${seconds} seconds!`, {
-        icon: <span>🥳</span>,
-      });
+      toast(
+        `Congratulations, you have completed the game in ${seconds} seconds & ${movesCount} moves!`,
+        {
+          icon: <span>🥳</span>,
+        }
+      );
       counterStop();
     }
   };
@@ -110,8 +116,8 @@ export function FlipFlop() {
   };
 
   return (
-    <>
-      <Counter ref={counterRef} />
+    <main>
+      <Counter ref={counterRef} movesCount={movesCount} />
       <section className="flip-flop">
         <div className="flip-flop__container">
           <div className="flip-flop__grid" style={gridStyles}>
@@ -121,6 +127,6 @@ export function FlipFlop() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

@@ -1,0 +1,29 @@
+.counter {
+  .counter {
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      max-width: 30rem;
+      margin: 0 auto;
+    }
+
+    &__moves,
+    &__timer {
+      display: flex;
+      gap: 0.5rem;
+
+      &--text,
+      &--value {
+        font-size: 1rem;
+        opacity: $opacity-standard;
+      }
+
+      &--text {
+        &::after {
+          display: inline-block;
+          content: ":";
+        }
+      }
+    }
+  }
+}
