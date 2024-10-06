@@ -1,4 +1,6 @@
 .counter {
+  margin-bottom: $section-margin-bottom;
+  
   .counter {
     &__container {
       display: flex;

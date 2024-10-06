@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startCounter, stopCounter, incrementCounter } from '../../../store';
 import { RootState } from '../../../store';
@@ -12,7 +12,7 @@ export const Counter = forwardRef<CounterRef, CounterProps>((props, ref) => {
   const intervalId = useRef(0);
 
   // Start and Stop functions, callable from outside the component
-  React.useImperativeHandle(ref, () => ({
+  useImperativeHandle(ref, () => ({
     start: () => dispatch(startCounter()),
     stop: () => dispatch(stopCounter()),
   }));

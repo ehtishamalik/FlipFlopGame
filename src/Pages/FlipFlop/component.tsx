@@ -1,6 +1,6 @@
 import { useRef, useEffect, useMemo, useState } from 'react';
 import { Card } from '../../Components/FlipFlop/Card';
-import { generateRandomArray } from './helpers';
+import { generateRandomArray, getGridGap } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
@@ -41,6 +41,7 @@ export function FlipFlop() {
     () =>
       ({
         '--grid-template': `${difficultyNumber}`,
+        '--grid-gap': `${getGridGap(difficultyNumber)}`,
       }) as React.CSSProperties,
     [difficultyNumber]
   );
@@ -118,9 +119,9 @@ export function FlipFlop() {
   return (
     <main>
       <Counter ref={counterRef} movesCount={movesCount} />
-      <section className="flip-flop">
+      <section className="flip-flop" style={gridStyles}>
         <div className="flip-flop__container">
-          <div className="flip-flop__grid" style={gridStyles}>
+          <div className="flip-flop__grid">
             {cards.map((img) => (
               <Card imageName={img} onClickCallback={onCardFlip} />
             ))}

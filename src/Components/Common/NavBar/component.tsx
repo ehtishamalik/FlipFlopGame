@@ -18,13 +18,13 @@ export function NavBar() {
   return (
     showNavBar && (
       <nav className="navbar">
-        <div className="navbar-container">
-          <div className="navbar-container__logo">
+        <div className="navbar__container">
+          <div className="navbar__logo">
             <figure onClick={redirectTo('/')}>
               <img src="images/logo.svg" alt="Flip Flop logo" />
             </figure>
           </div>
-          <div className="navbar-container__links">
+          <div className="navbar__links">
             {isNotHome && (
               <Button
                 text="home"
@@ -39,7 +39,7 @@ export function NavBar() {
             />
             <Button text="scoreboard" type="tertiary" />
           </div>
-          <div className="navbar-container__buttons">
+          <div className="navbar__buttons">
             <Button
               text="login"
               type="secondary"
