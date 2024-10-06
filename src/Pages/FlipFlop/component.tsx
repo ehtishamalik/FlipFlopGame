@@ -1,14 +1,20 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { Card } from '../../Components/FlipFlop/Card';
-import { generateRandomArray } from './helpers';
+import { generateRandomArray, getGridGap } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { diffultyOptions } from '../../constants';
 import { toast } from 'react-toastify';
+import { Counter } from '../../Components/FlipFlop/Counter';
+import { CounterRef } from '../../Components/FlipFlop/Counter';
 
 export function FlipFlop() {
   const navigate = useNavigate();
+
+  const [movesCount, setmovesCount] = useState<number>(0);
+
+  const counterRef = useRef<CounterRef>(null);
 
   const firstCard = useRef<HTMLButtonElement | null>(null);
   const firstCardNumber = useRef<number | null>(null);
@@ -22,6 +28,8 @@ export function FlipFlop() {
     (state: RootState) => state.gameDifficulty.level
   );
 
+  const seconds = useSelector((state: RootState) => state.counter.seconds);
+
   const difficultyNumber: number = difficulty ? diffultyOptions[difficulty] : 0;
   const cardLength: number = difficultyNumber * difficultyNumber;
   const uniqueCardsNumber: number = cardLength / 2;
@@ -33,6 +41,7 @@ export function FlipFlop() {
     () =>
       ({
         '--grid-template': `${difficultyNumber}`,
+        '--grid-gap': `${getGridGap(difficultyNumber)}`,
       }) as React.CSSProperties,
     [difficultyNumber]
   );
@@ -48,6 +57,8 @@ export function FlipFlop() {
     if (alreadyFlipped.current.includes(imageName)) return;
 
     if (firstCard.current === null) {
+      counterStart();
+
       firstCard.current = currentTarget;
       firstCardNumber.current = imageName;
       currentTarget.classList.add('flipped');
@@ -56,6 +67,7 @@ export function FlipFlop() {
       secondCardNumber.current = imageName;
       currentTarget.classList.add('flipped');
 
+      setmovesCount(() => movesCount + 1);
       checkCards();
     }
   };
@@ -86,21 +98,36 @@ export function FlipFlop() {
 
   const checkGameCompletion = () => {
     if (alreadyFlipped.current.length === uniqueCardsNumber) {
-      toast('Congratulations, you have completed the game in 50 seconds!', {
-        icon: <span>🥳</span>,
-      });
+      toast(
+        `Congratulations, you have completed the game in ${seconds} seconds & ${movesCount} moves!`,
+        {
+          icon: <span>🥳</span>,
+        }
+      );
+      counterStop();
     }
   };
 
+  const counterStart = () => {
+    if (counterRef.current) counterRef.current.start();
+  };
+
+  const counterStop = () => {
+    if (counterRef.current) counterRef.current.stop();
+  };
+
   return (
-    <section className="flip-flop">
-      <div className="flip-flop__container">
-        <div className="flip-flop__grid" style={gridStyles}>
-          {cards.map((img) => (
-            <Card imageName={img} onClickCallback={onCardFlip} />
-          ))}
+    <main>
+      <Counter ref={counterRef} movesCount={movesCount} />
+      <section className="flip-flop" style={gridStyles}>
+        <div className="flip-flop__container">
+          <div className="flip-flop__grid">
+            {cards.map((img) => (
+              <Card imageName={img} onClickCallback={onCardFlip} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

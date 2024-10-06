@@ -1,7 +1,8 @@
 .header {
+  flex: 1 0 0;
   height: $height-full;
 
-  .header-container {
+  &__container {
     display: flex;
     align-items: center;
     justify-content: center;

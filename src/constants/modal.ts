@@ -4,8 +4,6 @@ export const MEDIUM = 'MEDIUM';
 export const HARD = 'HARD';
 export const EXPERT = 'EXPERT';
 
-export const gameDifficultySliceName = 'gameDifficulty';
-
 export const diffultyOptions = {
   [EASY]: 4,
   [MEDIUM]: 6,
