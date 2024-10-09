@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import gameDifficultyReducer from './states/gameDifficultySlice';
+import GameDifficultyReducer from './states/gameDifficultySlice';
+import ScoreDifficultyReducer from './states/scoreDifficultySlice';
 import CounterReducer from './states/counterSlice';
 
 export const store = configureStore({
   reducer: {
-    gameDifficulty: gameDifficultyReducer,
+    gameDifficulty: GameDifficultyReducer,
+    scoreDifficulty: ScoreDifficultyReducer,
     counter: CounterReducer,
   },
 });
