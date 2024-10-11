@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ScoreDifficultySelector } from '../../Components/Scoreboard/ScoreDifficultySelector';
 import { AppDispatch, RootState, setScoreDifficulty } from '../../store';
+import { ScoreTable } from '../../Components/Scoreboard/ScoreTable';
+import { mockScore } from './__mocks__';
 
 export function Scoreboard() {
   const difficulty = useSelector(
@@ -16,6 +18,7 @@ export function Scoreboard() {
             dispatch(setScoreDifficulty(level));
           }}
         />
+        <ScoreTable scores={mockScore} />
       </div>
     </section>
   );

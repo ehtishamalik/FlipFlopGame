@@ -5,3 +5,9 @@ export type DifficultyLevel =
   | typeof MEDIUM
   | typeof HARD
   | typeof EXPERT;
+
+export interface IScore {
+  username: string;
+  movesCount: number;
+  time: number;
+}
