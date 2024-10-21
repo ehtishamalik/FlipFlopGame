@@ -37,7 +37,11 @@ export function NavBar() {
               type="tertiary"
               onClickCallback={redirectTo('/gamedifficulty')}
             />
-            <Button text="scoreboard" type="tertiary" />
+            <Button
+              text="scoreboard"
+              type="tertiary"
+              onClickCallback={redirectTo('/scoreboard')}
+            />
           </div>
           <div className="navbar__buttons">
             <Button

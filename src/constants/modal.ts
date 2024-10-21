@@ -4,7 +4,7 @@ export const MEDIUM = 'MEDIUM';
 export const HARD = 'HARD';
 export const EXPERT = 'EXPERT';
 
-export const diffultyOptions = {
+export const difficultyOptions = {
   [EASY]: 4,
   [MEDIUM]: 6,
   [HARD]: 8,

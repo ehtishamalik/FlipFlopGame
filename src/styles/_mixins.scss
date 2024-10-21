@@ -1,0 +1,67 @@
+@use "sass:list";
+@use "sass:map";
+
+// Breakpoint viewport sizes and media queries.
+
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+// The map defined in the `$breakpoints` global variable is used as the `$breakpoints` argument by default.
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//    >> breakpoint(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint($name) {
+	$min: map.get($breakpoints, $name);
+
+	@return if($min != 0, $min, null);
+}
+
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name) {
+	$min: breakpoint($name);
+
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name) {
+	$max: breakpoint($name);
+
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint($lower, $breakpoints);
+	$max: breakpoint($upper, $breakpoints);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media-breakpoint-up($lower, $breakpoints) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-breakpoint-down($upper, $breakpoints) {
+			@content;
+		}
+	}
+}

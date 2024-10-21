@@ -1,13 +1,13 @@
-import { diffultyOptions } from '../../constants';
+import { difficultyOptions } from '../../constants';
 import { DifficultyLevel } from '../../types';
 import { DiffultyOptionsProps } from './types';
 
 export const getDiffultyOptions = (): DiffultyOptionsProps => {
-  const difficulties = Object.keys(diffultyOptions) as DifficultyLevel[];
+  const difficulties = Object.keys(difficultyOptions) as DifficultyLevel[];
   return difficulties.map((difficulty) => {
     return {
       difficulty,
-      gridSize: diffultyOptions[difficulty],
+      gridSize: difficultyOptions[difficulty],
     };
   });
 };

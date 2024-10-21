@@ -29,6 +29,13 @@ $height-full: 100%;
 $opacity-full: 100%;
 $opacity-half: 50%;
 $section-margin-bottom: 1rem;
+$breakpoints: (
+	sm: rem(576),
+	md: rem(768),
+	lg: rem(992),
+	xl: rem(1200),
+	xxl: rem(1440)
+);
 
 /* Buttons */
 $button-color-primary: $purple;
@@ -51,12 +58,15 @@ $text-field-font-size-small: 1rem;
 $text-field-font-size-medium: 1.2rem;
 $text-field-font-size-large: 1.4rem;
 
-/* Login */
+/* AUTH */
 $login-box-width: 25rem;
 $login-box-bg-color: $black-light;
 $login-box-padding: 2rem; 
 $login-box-border-radius: 1rem;
 $login-box-box-shadow: 0 1.5rem 2.5rem rgba($purple, 0.7);
+
+/* Scoreboard */
+$scoretable-bg-color: rgba($black, 0.9);
 
 /* Toastify */
 $toastify-color-light: white;

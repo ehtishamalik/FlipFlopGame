@@ -4,7 +4,7 @@ import { generateRandomArray, getGridGap } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import { diffultyOptions } from '../../constants';
+import { difficultyOptions } from '../../constants';
 import { toast } from 'react-toastify';
 import { Counter } from '../../Components/FlipFlop/Counter';
 import { CounterRef } from '../../Components/FlipFlop/Counter';
@@ -30,7 +30,9 @@ export function FlipFlop() {
 
   const seconds = useSelector((state: RootState) => state.counter.seconds);
 
-  const difficultyNumber: number = difficulty ? diffultyOptions[difficulty] : 0;
+  const difficultyNumber: number = difficulty
+    ? difficultyOptions[difficulty]
+    : 0;
   const cardLength: number = difficultyNumber * difficultyNumber;
   const uniqueCardsNumber: number = cardLength / 2;
 

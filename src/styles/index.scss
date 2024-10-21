@@ -1,4 +1,6 @@
+@import './functions';
 @import './variables';
+@import './mixins';
 @import './base';
 @import './buttons';
 @import './navbar';
@@ -9,3 +11,4 @@
 @import './flip-flop';
 @import './toastify';
 @import './counter';
+@import './scoreboard';

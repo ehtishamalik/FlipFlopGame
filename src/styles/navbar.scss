@@ -1,35 +1,35 @@
 .navbar {
-    margin-bottom: $section-margin-bottom;
+  margin-bottom: $section-margin-bottom;
 
-    &__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem 2rem;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+  }
+
+  &__logo {
+    figure {
+      cursor: pointer;
+      transition: opacity $transition-standard;
+
+      img {
+        width: 8rem;
+      }
+
+      &:hover {
+        opacity: $opacity-standard;
+      }
     }
+  }
 
-    &__logo {
-        figure {
-            cursor: pointer;
-            transition: opacity $transition-standard;
+  &__links,
+  &__buttons {
+    display: inline-flex;
+    align-items: center;
 
-            img {
-                width: 8rem;
-            }
-
-            &:hover {
-                opacity: $opacity-standard;
-            }
-        }
+    .ff-button:not(:last-child) {
+      margin: 0 1rem 0 0;
     }
-
-    &__links,
-    &__buttons {
-        display: inline-flex;
-        align-items: center;
-
-        .ff-button:not(:last-child) {
-            margin: 0 1rem 0 0;
-        }
-    }
+  }
 }

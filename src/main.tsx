@@ -7,9 +7,10 @@ import { Home } from './Pages/Home/component.tsx';
 import { Login } from './Pages/Login/component.tsx';
 import { Register } from './Pages/Register/component.tsx';
 import { FlipFlop } from './Pages/FlipFlop/component.tsx';
-import App from './App.tsx';
 import { GameDifficultySelector } from './Components/GameDifficultySelector';
+import { Scoreboard } from './Pages/Scoreboard/component.tsx';
 
+import App from './App.tsx';
 import './styles/index.scss';
 
 const router = createBrowserRouter([
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/game',
         element: <FlipFlop />,
+        caseSensitive: true,
+      },
+      {
+        path: '/scoreboard',
+        element: <Scoreboard />,
         caseSensitive: true,
       },
     ],

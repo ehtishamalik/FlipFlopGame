@@ -1,0 +1,67 @@
+.scoreboard {
+  .scoreboard {
+    &__container {
+      max-width: 36rem;
+      margin: 0 auto;
+
+      .score-difficulty {
+        margin-bottom: $section-margin-bottom;
+
+        .score-difficulty {
+          &__container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+          }
+  
+          &--button {
+            padding: 0.5rem 1rem;
+            font-size: $font-size-h3;
+            font-weight: $text-bold;
+            cursor: pointer;
+            background: $gray;
+            border: none;
+            border-radius: 1rem;
+            transition: all $transition-standard;
+            
+            &.active {
+              background: $purple;
+            }
+  
+            &:hover:not(.active) {
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+
+      .scoretable {
+        .scoretable {
+          &__table {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            text-align: center;
+            text-transform: capitalize;
+            background-color: $scoretable-bg-color;
+            border-radius: 1rem;
+
+            @include media-breakpoint-up(lsx) {
+              border-radius: 50%;
+            }
+            
+            &--header-cell {
+              padding-bottom: 1rem;
+            }
+
+            &--cell {
+              padding: 0.5rem 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
