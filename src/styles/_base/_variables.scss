@@ -1,3 +1,12 @@
+// Standards
+$transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
+$opacity-standard: 80%;
+$max-width-standard: 90rem;
+$height-full: 100%;
+$opacity-full: 100%;
+$opacity-half: 50%;
+$section-margin-bottom: 1rem;
+
 /* Colors */
 $transparent: transparent;
 $white: white;
@@ -20,22 +29,6 @@ $font-size-h3: 1rem;
 $font-size-p-small: 0.6rem;
 $font-size-p-medium: 0.7rem;
 $font-size-p-large: 0.8rem;
-
-// Standards
-$transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
-$opacity-standard: 80%;
-$max-width-standard: 90rem;
-$height-full: 100%;
-$opacity-full: 100%;
-$opacity-half: 50%;
-$section-margin-bottom: 1rem;
-$breakpoints: (
-	sm: rem(576),
-	md: rem(768),
-	lg: rem(992),
-	xl: rem(1200),
-	xxl: rem(1440)
-);
 
 /* Buttons */
 $button-color-primary: $purple;

@@ -12,5 +12,12 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`
       }
     },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      }
+    }
   }
 });

@@ -1,3 +1,5 @@
+@use "./_base" as *;
+
 .difficulty-selector {
   flex: 1 0 0;
   height: $height-full;

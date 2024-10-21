@@ -9,27 +9,25 @@ $rem-units-active: true;
 * Converts an pixel value into a rem value.
 *
 * @param string  $values    the pixel value(s) as a number. Can convert multiple values if values separated by a space.
-* @param integer $base      the base pixel value.
 *
 * @return string   a space-separated string of rem values.
 */
 @function rem($values) {
-	$base: 16;
 	$max: list.length($values);
 	$rem-values: ();
 
 	@if $max == 1 {
-		@return convert-to-rem(list.nth($values, 1), $base);
+		@return convert-to-rem(list.nth($values, 1));
 	}
 
 	@for $i from 1 through $max {
-		$rem-values: list.append($rem-values, convert-to-rem(list.nth($values, $i), $base));
+		$rem-values: list.append($rem-values, convert-to-rem(list.nth($values, $i)));
 	}
 
 	@return $rem-values;
 }
 
-@function convert-to-rem($value, $base: $rem-base) {
+@function convert-to-rem($value) {
 	@if $rem-units-active == false {
 		$value: strip-unit($value) * rem(1);
 
@@ -40,13 +38,11 @@ $rem-units-active: true;
 		@return $value;
 	}
 
-	$value: math.div(strip-units($value), strip-units($base)) * 1rem;
+	$value: math.div(strip-units($value), strip-units($rem-base)) * 1rem;
 
 	@if $value == 0 {
-		$value: 0;
+		$value: 0; // Turn 0rem into 0
 	}
-
-	// Turn 0rem into 0
 
 	@return $value;
 }
