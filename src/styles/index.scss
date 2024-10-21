@@ -1,11 +1,7 @@
+@use './components';
 @use './base';
-@use './buttons';
-@use './navbar';
 @use './home';
 @use './auth';
-@use './textfield';
 @use './difficulty-selector';
 @use './flip-flop';
-@use './toastify';
-@use './counter';
 @use './scoreboard';
