@@ -68,5 +68,6 @@ div {
   flex-direction: column;
   max-width: $max-width-standard;
   min-height: 100vh;
+  padding: 0 responsive-values(16, 32);
   margin: 0 auto;
 }

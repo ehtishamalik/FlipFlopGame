@@ -1,27 +1,10 @@
+@use "./functions" as *;
 @use "sass:list";
 @use "sass:map";
-@use "./functions";
 
 // Breakpoint viewport sizes and media queries.
-$breakpoints: (
-	sm: functions.rem(576),
-	md: functions.rem(768),
-	lg: functions.rem(992),
-	xl: functions.rem(1200),
-	xxl: functions.rem(1440)
-);
-
 // Breakpoints are defined as a map of (name: minimum width), order from small to large:
 //    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
-// The map defined in the `$breakpoints` global variable is used as the `$breakpoints` argument by default.
-// Minimum breakpoint width. Null for the smallest (first) breakpoint.
-//    >> breakpoint(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    576px
-@function breakpoint($name) {
-	$min: map.get($breakpoints, $name);
-
-	@return if($min != 0, $min, null);
-}
 
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.

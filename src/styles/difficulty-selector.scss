@@ -2,14 +2,14 @@
 
 .difficulty-selector {
   flex: 1 0 0;
-  height: $height-full;
+  height: 100%;
   
   .difficulty-selector {
     &__container {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: $height-full;
+      height: 100%;
     }
 
     &__grid {

@@ -1,0 +1,49 @@
+@use "../includes" as *;
+
+.navbar {
+  .navbar {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: rem(8);
+      margin-bottom: $section-margin-bottom;
+    }
+  
+    &__logo {
+      figure {
+        cursor: pointer;
+        transition: opacity $transition-standard;
+  
+        img {
+          width: 100%;
+          max-width: rem(128);
+        }
+  
+        &:hover {
+          opacity: $opacity-standard;
+        }
+      }
+    }
+  
+    &__links,
+    &__buttons {
+      display: inline-flex;
+      gap: rem(16);
+      align-items: center;
+    }
+  }
+}
+
+.header {
+  flex: 1 0 0;
+
+  .header {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+}

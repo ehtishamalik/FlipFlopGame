@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { difficultyOptions } from '../../../constants';
 import { DifficultyLevel } from '../../../types';
 import { ScoreDifficultySelectorProps } from './types';
-import clsx from 'clsx';
+import { Button } from '../../Common/Button';
 
 export function ScoreDifficultySelector({
   value,
@@ -19,15 +19,13 @@ export function ScoreDifficultySelector({
     <section className="score-difficulty">
       <div className="score-difficulty__container">
         {options.map((option, index) => (
-          <button
+          <Button
             key={index}
-            className={clsx('score-difficulty--button', {
-              active: option === value,
-            })}
-            onClick={handleOnClick(option)}
-          >
-            {option}
-          </button>
+            text={option}
+            type="secondary"
+            active={option === value}
+            onClickCallback={handleOnClick(option)}
+          />
         ))}
       </div>
     </section>

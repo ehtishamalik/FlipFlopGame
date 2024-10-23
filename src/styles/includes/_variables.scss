@@ -1,11 +1,15 @@
+@use "./functions" as *;
+
 // Standards
 $transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
+$border-radius-inner: responsive-values(8, 12);
+$border-radius-outer: responsive-values(24, 26);
+$section-margin-bottom: rem(16);
+$max-width-standard: rem(1440);
+$container-padding: rem(16);
 $opacity-standard: 80%;
-$max-width-standard: 90rem;
-$height-full: 100%;
 $opacity-full: 100%;
 $opacity-half: 50%;
-$section-margin-bottom: 1rem;
 
 /* Colors */
 $transparent: transparent;
@@ -22,41 +26,41 @@ $text-medium: 500;
 $text-bold: 600;
 $text-bolder: 700;
 $text-line-height: 1.2;
-$text-letter-spacing: 0.1rem;
-$font-size-h1: 2rem;
-$font-size-h2: 1.5rem;
-$font-size-h3: 1rem;
-$font-size-p-small: 0.6rem;
-$font-size-p-medium: 0.7rem;
-$font-size-p-large: 0.8rem;
+$text-letter-spacing: rem(2);
+$font-size-h1: rem(32);
+$font-size-h2: rem(24);
+$font-size-h3: rem(16);
+$font-size-p-small: rem(8);
+$font-size-p-medium: rem(10);
+$font-size-p-large: rem(12);
 
 /* Buttons */
 $button-color-primary: $purple;
 $button-color-secondary: $white;
-$button-border-radius: 1rem;
-$button-border: 0.1rem solid $purple;
-$button-font-size: 1rem;
-$button-font-weight: 500;
-$button-padding: 0.5rem 1rem;
-$button-box-shadow: 0 0 1.5rem $button-color-primary;
-$button-tertiary-box-shadow: 0 0 1rem 0.2rem $button-color-primary;
+$button-border-radius: $border-radius-inner;
+$button-border: rem(2) solid $purple;
+$button-font-size: rem(16);
+$button-font-weight: $text-medium;
+$button-padding: rem(8 16);
+$button-box-shadow: 0 0 rem(16) $button-color-primary;
+$button-tertiary-box-shadow: rem(0 0 16 4) $button-color-primary;
 
 /* Text Field */
 $text-field-border: none;
-$text-field-font-size-label: 0.8rem;
-$text-field-font-size-label-active: 0.6rem;
-$text-field-input-padding: 0 0.2rem;
+$text-field-font-size-label: rem(12);
+$text-field-font-size-label-active: rem(8);
+$text-field-input-padding: rem(0 4);
 $text-field-background: $transparent;
-$text-field-font-size-small: 1rem;
-$text-field-font-size-medium: 1.2rem;
-$text-field-font-size-large: 1.4rem;
+$text-field-font-size-small: $font-size-p-small;
+$text-field-font-size-medium: $font-size-p-medium;
+$text-field-font-size-large: $font-size-p-large;
 
 /* AUTH */
-$login-box-width: 25rem;
+$login-box-width: rem(400);
 $login-box-bg-color: $black-light;
-$login-box-padding: 2rem; 
-$login-box-border-radius: 1rem;
-$login-box-box-shadow: 0 1.5rem 2.5rem rgba($purple, 0.7);
+$login-box-padding: rem(32); 
+$login-box-border-radius: rem(16);
+$login-box-box-shadow: rem(0 24 32) rgba($purple, 0.7);
 
 /* Scoreboard */
 $scoretable-bg-color: rgba($black, 0.9);
