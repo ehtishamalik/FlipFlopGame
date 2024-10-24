@@ -130,6 +130,7 @@ $rem-units-active: true;
 
 // Breakpoints
 $breakpoints: (
+	xs: rem(375),
 	sm: rem(576),
 	md: rem(768),
 	lg: rem(992),
