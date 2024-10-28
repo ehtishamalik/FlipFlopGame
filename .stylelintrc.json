@@ -1,5 +1,8 @@
 {
-    "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-recess-order"
+    ],
     "rules": {
         "no-descending-specificity": true,
         "color-no-hex": true,
@@ -16,6 +19,12 @@
         "function-calc-no-unspaced-operator": true,
         "comment-whitespace-inside": "always",
         "no-duplicate-selectors": true,
-        "block-no-empty": true
+        "block-no-empty": true,
+        "selector-class-pattern": [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$",
+            {
+                "message": "Class names should follow BEM (block__element--modifier)."
+            }
+        ]
     }
 }
