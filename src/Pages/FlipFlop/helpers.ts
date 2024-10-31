@@ -11,17 +11,3 @@ export const generateRandomArray = (length: number): number[] => {
 
   return numbers.sort(() => 0.5 - Math.random());
 };
-
-export const getGridGap = (difficultyNumber: number): string => {
-  if (difficultyNumber === 4) {
-    return '2rem';
-  } else if (difficultyNumber === 6) {
-    return '1rem';
-  } else if (difficultyNumber === 8) {
-    return '0.7rem';
-  } else if (difficultyNumber === 10) {
-    return '0.4rem';
-  } else {
-    return '1rem';
-  }
-};

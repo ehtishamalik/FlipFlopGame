@@ -31,6 +31,10 @@
       justify-content: space-between;
       margin: rem(32 0 0 0);
 
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+      }
+
       &--new {
         display: inline-flex;
         flex-direction: column;

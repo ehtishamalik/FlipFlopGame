@@ -3,7 +3,7 @@
 // Standards
 $transition-standard: 300ms cubic-bezier(.05, .03, .35, 1);
 $border-radius-inner: responsive-values(8, 12);
-$border-radius-outer: responsive-values(24, 26);
+$border-radius-outer: responsive-values(16, 24);
 $section-margin-bottom: rem(16);
 $max-width-standard: breakpoint(xxl);
 $container-padding: rem(16);
@@ -67,6 +67,13 @@ $login-container-box-shadow: rem(0 24 32) rgba($purple, 0.5);
 
 /* Scoreboard */
 $scoretable-bg-color: rgba($black, 0.9);
+
+/* Nav Bar */
+$navbar-mobile-top: rem(60);
+$navbar-mobile-height: calc(100dvh - $navbar-mobile-top - 1rem);
+$navbar-mobile-border-radius: 0 $border-radius-outer $border-radius-outer 0;
+$navbar-mobile-gap: rem(24);
+$navbar-mobile-btn-close-size: rem(45);
 
 /* Toastify */
 $toastify-color-light: white;
