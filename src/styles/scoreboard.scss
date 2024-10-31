@@ -1,3 +1,5 @@
+@use "includes" as *;
+
 .scoreboard {
   .scoreboard {
     &__container {
@@ -9,29 +11,22 @@
 
         .score-difficulty {
           &__container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-          }
-  
-          &--button {
-            padding: 0.5rem 1rem;
-            font-size: $font-size-h3;
-            font-weight: $text-bold;
-            cursor: pointer;
-            background: $gray;
-            border: none;
-            border-radius: 1rem;
-            transition: all $transition-standard;
-            
-            &.active {
-              background: $purple;
+            display: grid;
+            grid-template-rows: repeat(1, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            gap: responsive-values(16, 32);
+            place-items: center center;
+            padding: $container-padding;
+            background-color: $black-light;
+            border-radius: $border-radius-outer;
+
+            .ff-button {
+              width: 100%;
             }
-  
-            &:hover:not(.active) {
-              transform: scale(1.05);
+            
+            @include media-breakpoint-down(md) {
+              grid-template-rows: repeat(2, 1fr);
+              grid-template-columns: repeat(2, 1fr);
             }
           }
         }
@@ -46,18 +41,14 @@
             text-align: center;
             text-transform: capitalize;
             background-color: $scoretable-bg-color;
-            border-radius: 1rem;
-
-            @include media-breakpoint-up(lsx) {
-              border-radius: 50%;
-            }
+            border-radius: $border-radius-outer;
             
             &--header-cell {
-              padding-bottom: 1rem;
+              padding: 0 0.5rem 1rem;
             }
 
             &--cell {
-              padding: 0.5rem 0;
+              padding: 0.5rem;
             }
           }
         }

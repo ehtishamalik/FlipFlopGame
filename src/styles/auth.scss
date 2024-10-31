@@ -1,44 +1,47 @@
+@use "includes" as *;
+
 .auth-form {
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  height: $height-full;
 
   .auth-form {
     &__heading {
-      margin-bottom: 1rem;
+      margin-bottom: $section-margin-bottom;
       text-align: center;
     }
 
     &__container {
-      width: $login-box-width;
-      padding: $login-box-padding;
-      background-color: $login-box-bg-color;
-      border-radius: $login-box-border-radius;
-      box-shadow: $login-box-box-shadow;
+      width: $login-container-width;
+      padding: $login-container-padding;
+      background-color: $login-container-bg-color;
+      border-radius: $border-radius-outer;
+      box-shadow: $login-container-box-shadow;
     }
 
     &__item {
-      margin-bottom: 1.5rem;
+      margin-bottom: $section-margin-bottom;
     }
     
     &__button {
       display: flex;
+      gap: rem(16);
+      align-items: center;
       justify-content: space-between;
-      margin-top: 3rem;
+      margin: rem(32 0 0 0);
+
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+      }
 
       &--new {
         display: inline-flex;
         flex-direction: column;
-
-        .ff-button {
-          margin: 0 auto;
-        }
-
-        p {
-          margin-bottom: 0.5rem;
-          text-transform: capitalize;
-        }
+        gap: rem(8);
+        align-items: center;
+        text-align: center;
+        text-transform: capitalize;
       }
     }
   }

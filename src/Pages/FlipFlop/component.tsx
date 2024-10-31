@@ -1,6 +1,6 @@
 import { useRef, useEffect, useMemo, useState } from 'react';
 import { Card } from '../../Components/FlipFlop/Card';
-import { generateRandomArray, getGridGap } from './helpers';
+import { generateRandomArray } from './helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
@@ -38,15 +38,6 @@ export function FlipFlop() {
 
   // Memoize the random card array to avoid recalculating
   const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
-
-  const gridStyles = useMemo(
-    () =>
-      ({
-        '--grid-template': `${difficultyNumber}`,
-        '--grid-gap': `${getGridGap(difficultyNumber)}`,
-      }) as React.CSSProperties,
-    [difficultyNumber]
-  );
 
   useEffect(() => {
     if (!difficulty) {
@@ -121,9 +112,13 @@ export function FlipFlop() {
   return (
     <main>
       <Counter ref={counterRef} movesCount={movesCount} />
-      <section className="flip-flop" style={gridStyles}>
-        <div className="flip-flop__container">
-          <div className="flip-flop__grid">
+      <section className="flip-flop">
+        <div
+          className={`flip-flop__container flip-flop__container--${difficulty?.toLowerCase()}`}
+        >
+          <div
+            className={`flip-flop__grid flip-flop__grid--${difficulty?.toLowerCase()}`}
+          >
             {cards.map((img) => (
               <Card imageName={img} onClickCallback={onCardFlip} />
             ))}

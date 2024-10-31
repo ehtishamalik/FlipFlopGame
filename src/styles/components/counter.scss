@@ -1,3 +1,5 @@
+@use "../includes" as *;
+
 .counter {
   margin-bottom: $section-margin-bottom;
   
@@ -7,12 +9,21 @@
       justify-content: space-between;
       max-width: 30rem;
       margin: 0 auto;
+
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        gap: rem(16);
+      }
     }
 
     &__moves,
     &__timer {
       display: flex;
       gap: 0.5rem;
+
+      @include media-breakpoint-down(sm) {
+        justify-content: space-between;
+      }
 
       &--text,
       &--value {

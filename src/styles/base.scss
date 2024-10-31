@@ -1,3 +1,5 @@
+@use "includes" as *;
+
 :root {
   font-synthesis: none;
   text-rendering: optimizelegibility;
@@ -33,17 +35,17 @@ body {
 }
 
 h1 {
-  font-size: $font-size-h1;
+  font-size: $font-h1;
   font-weight: $text-bold;
 }
 
 h2 {
-  font-size: $font-size-h2;
+  font-size: $font-h2;
   font-weight: $text-bold;
 }
 
 h3 {
-  font-size: $font-size-h3;
+  font-size: $font-h3;
   font-weight: $text-bold;
 }
 
@@ -52,7 +54,7 @@ a,
 li,
 span,
 div {
-  font-size: $font-size-p-medium;
+  font-size: $font-small;
   font-weight: $text-light;
   text-decoration: none;
 }
@@ -65,6 +67,7 @@ div {
   display: flex;
   flex-direction: column;
   max-width: $max-width-standard;
-  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0 responsive-values(16, 32);
   margin: 0 auto;
 }
