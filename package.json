@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "flask --app app run --debug",
     "host": "ssh -p 443 -o ServerAliveInterval=30 -R0:127.0.0.1:5000 a.pinggy.io",
-    "watch": "chokidar 'index.html' 'src/**/*.{ts}' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build --minify=false'",
+    "watch": "chokidar 'index.html' 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.scss' -c 'yarn build --minify=false'",
     "lint": "eslint . && stylelint 'src/**/*.scss'",
     "lint:fix": "eslint . --fix && stylelint 'src/**/*.scss' --fix",
     "build": "tsc -b && vite build",

@@ -135,7 +135,7 @@ class Scoreboard(Resource):
                 heighest_score: Dict[str, Any] = scoreboard_collection.find_one(sort=[("seconds", -1)])
                 scoreboard_collection.delete_one({"_id": heighest_score.get("_id")})
             
-            return create_response_success("Score added successfully."), 201
+            return create_response_success("Score saved successfully."), 201
         except PyMongoError as e:
             return create_response_error("Database error occurred.", str(e)), 500
 

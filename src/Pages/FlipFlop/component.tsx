@@ -8,6 +8,7 @@ import { difficultyOptions } from '../../constants';
 import { toast } from 'react-toastify';
 import { Counter } from '../../Components/FlipFlop/Counter';
 import { CounterRef } from '../../Components/FlipFlop/Counter';
+import { submitScoreboard } from '../../api';
 
 export function FlipFlop() {
   const navigate = useNavigate();
@@ -27,6 +28,8 @@ export function FlipFlop() {
   const difficulty = useSelector(
     (state: RootState) => state.gameDifficulty.level
   );
+
+  const time = useSelector((state: RootState) => state.counter.seconds);
 
   const seconds = useSelector((state: RootState) => state.counter.seconds);
 
@@ -98,7 +101,22 @@ export function FlipFlop() {
         }
       );
       counterStop();
+      handleSubmitScoreboard();
     }
+  };
+
+  const handleSubmitScoreboard = async () => {
+    if (!difficulty) return;
+    const response = await submitScoreboard(difficulty, {
+      username: 'temp',
+      moves_count: movesCount,
+      seconds: time,
+    });
+    if (response.type === 'error') {
+      toast.error(response.message);
+      return;
+    }
+    toast.success(response.message);
   };
 
   const counterStart = () => {

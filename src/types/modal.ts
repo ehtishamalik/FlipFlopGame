@@ -8,6 +8,14 @@ export type DifficultyLevel =
 
 export interface IScore {
   username: string;
-  movesCount: number;
-  time: number;
+  moves_count: number;
+  seconds: number;
+}
+
+export type LoadingCallback = (value: boolean) => void;
+
+export interface ServerError {
+  type: string;
+  message: string;
+  details: string;
 }
