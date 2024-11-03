@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { startCounter, stopCounter, incrementCounter } from '../../../store';
 import { RootState } from '../../../store';
 import { CounterProps, CounterRef } from './types';
+import { formatSeconds } from '../../../utils';
 
 export const Counter = forwardRef<CounterRef, CounterProps>((props, ref) => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export const Counter = forwardRef<CounterRef, CounterProps>((props, ref) => {
         </div>
         <div className="counter__timer">
           <p className="counter__timer--text">Seconds</p>
-          <p className="counter__timer--value">{seconds}</p>
+          <p className="counter__timer--value">{formatSeconds(seconds)}</p>
         </div>
       </div>
     </section>
