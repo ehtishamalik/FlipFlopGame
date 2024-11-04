@@ -1,12 +1,44 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../Components/Common/Button';
 import { TextField } from '../../Components/Common/TextField';
+import { useState } from 'react';
+import { InitialLoginCredentials } from '../../constants';
 
 export function Login() {
+  const [credentials, setCredentials] = useState(InitialLoginCredentials);
+  const [errors, setErrors] = useState(InitialLoginCredentials);
+
   const navigate = useNavigate();
   const redirectToRegister = () => {
     navigate('/register');
   };
+
+  const handleInput = (value: string, name: string) => {
+    setCredentials({ ...credentials, [name]: value });
+    setErrors({ ...errors, [name]: '' });
+  };
+
+  const validateCredentials = () => {
+    const allValid = Object.values(credentials).every((value) =>
+      Boolean(value)
+    );
+    if (!allValid) {
+      const { username, password } = credentials;
+      setErrors({
+        username: username ? '' : 'Username Required.',
+        password: password ? '' : 'Password Required.',
+      });
+    }
+
+    return allValid;
+  };
+
+  const onLoginClick = () => {
+    if (validateCredentials()) {
+      console.log('valid');
+    }
+  };
+
   return (
     <div className="auth-form">
       <div className="auth-form__container">
@@ -17,7 +49,9 @@ export function Login() {
             label="username"
             size="small"
             type="text"
-            onChangeCallback={() => {}}
+            name="username"
+            errorText={errors.username}
+            onChangeCallback={handleInput}
           />
         </div>
         <div className="auth-form__item">
@@ -26,11 +60,17 @@ export function Login() {
             label="password"
             size="small"
             type="password"
-            onChangeCallback={() => {}}
+            name="password"
+            errorText={errors.password}
+            onChangeCallback={handleInput}
           />
         </div>
         <div className="auth-form__button">
-          <Button text="login" type="secondary" />
+          <Button
+            text="login"
+            type="secondary"
+            onClickCallback={onLoginClick}
+          />
           <div className="auth-form__button--new">
             <p>don't have an account?</p>
             <Button
