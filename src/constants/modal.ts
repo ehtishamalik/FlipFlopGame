@@ -22,3 +22,5 @@ export const InitialLoginCredentials = {
   username: '',
   password: '',
 };
+
+export const errorResponse = 'An unexpected error occured, please try again.';

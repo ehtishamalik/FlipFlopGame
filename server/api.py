@@ -32,7 +32,7 @@ class Login(Resource):
             # Check if username exists
             user = users_collection.find_one({"username": username})
             if not user:
-                return create_response_error("Account does not exist."), 404
+                return create_response_error(f"Account with user '{username}' does not exist."), 404
 
             # Check if user exists and password is correct
             if check_password_hash(user["password"], password):

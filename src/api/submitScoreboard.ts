@@ -1,9 +1,9 @@
-import { DifficultyLevel, IScore, ServerError } from '../types';
+import { DifficultyLevel, IScore, ServerResponse } from '../types';
 
 export const submitScoreboard = async (
   difficulty: DifficultyLevel,
   data: IScore
-): Promise<ServerError> => {
+): Promise<ServerResponse> => {
   const response = await fetch(`api/scoreboard/${difficulty.toLowerCase()}`, {
     method: 'POST',
     headers: {

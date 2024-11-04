@@ -58,4 +58,8 @@
       }
     }
   }
+
+  &__disabled {
+    opacity: $opacity-half;
+  }
 }

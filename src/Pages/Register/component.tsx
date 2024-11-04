@@ -3,12 +3,16 @@ import { Button } from '../../Components/Common/Button';
 import { TextField } from '../../Components/Common/TextField';
 import { useNavigate } from 'react-router-dom';
 import { InitialRegisterCredentials } from '../../constants';
+import { submitUserAuth } from '../../api';
+import { toast } from 'react-toastify';
 
 export function Register() {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState(InitialRegisterCredentials);
   const [errors, setErrors] = useState(InitialRegisterCredentials);
+  const [loading, setLoading] = useState<boolean>(false);
   const redirectToLogin = () => {
+    if (loading) return;
     navigate('/login');
   };
 
@@ -55,9 +59,25 @@ export function Register() {
     return allValid;
   };
 
+  const handleUserRegister = async () => {
+    setLoading(true);
+    const response = await submitUserAuth(credentials, 'signup');
+    setLoading(false);
+    const { type, message } = response;
+    if (type === 'success') {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
+  };
+
   const onRegisterClick = () => {
+    if (loading) return;
+
     if (validateCredentials()) {
-      console.log('valid');
+      toast.promise(handleUserRegister, {
+        pending: 'Loading....',
+      });
     }
   };
 
@@ -113,6 +133,7 @@ export function Register() {
           <Button
             text="register"
             type="secondary"
+            disabled={loading}
             onClickCallback={onRegisterClick}
           />
           <div className="auth-form__button--new">
@@ -120,6 +141,7 @@ export function Register() {
             <Button
               text="login"
               type="tertiary"
+              disabled={loading}
               onClickCallback={redirectToLogin}
             />
           </div>
