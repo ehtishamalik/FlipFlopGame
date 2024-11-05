@@ -5,11 +5,15 @@ import { useState } from 'react';
 import { InitialLoginCredentials } from '../../constants';
 import { submitUserAuth } from '../../api';
 import { toast } from 'react-toastify';
+import { AppDispatch, setUserLogin } from '../../store';
+import { useDispatch } from 'react-redux';
 
 export function Login() {
   const [credentials, setCredentials] = useState(InitialLoginCredentials);
   const [errors, setErrors] = useState(InitialLoginCredentials);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const navigate = useNavigate();
   const redirectToRegister = () => {
@@ -45,7 +49,9 @@ export function Login() {
     if (type === 'success') {
       toast.success(message);
       if (access_token) {
-        localStorage.setItem("access_token", access_token)
+        localStorage.setItem("access_token", access_token);
+        dispatch(setUserLogin(true));
+        navigate("/")
       }
     } else {
       toast.error(message);

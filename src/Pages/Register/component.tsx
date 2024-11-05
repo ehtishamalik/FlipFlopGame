@@ -3,14 +3,19 @@ import { Button } from '../../Components/Common/Button';
 import { TextField } from '../../Components/Common/TextField';
 import { useNavigate } from 'react-router-dom';
 import { InitialRegisterCredentials } from '../../constants';
+import { AppDispatch, setUserLogin } from '../../store';
 import { submitUserAuth } from '../../api';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 export function Register() {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState(InitialRegisterCredentials);
   const [errors, setErrors] = useState(InitialRegisterCredentials);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const dispatch = useDispatch<AppDispatch>();
+
   const redirectToLogin = () => {
     if (loading) return;
     navigate('/login');
@@ -68,6 +73,8 @@ export function Register() {
       toast.success(message);
       if (access_token) {
         localStorage.setItem("access_token", access_token)
+        dispatch(setUserLogin(true));
+        navigate("/")
       }
     } else {
       toast.error(message);

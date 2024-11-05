@@ -83,6 +83,7 @@
         border: none;
         border-radius: $border-radius-inner;
         outline: none;
+        cursor: pointer;
 
         &-bar {
           display: inline-block;
