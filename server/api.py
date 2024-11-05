@@ -4,6 +4,7 @@ from pymongo.collection import Collection
 from pymongo.errors import PyMongoError
 from flask import request
 from flask_restful import Resource
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from typing import Dict, Any
 from werkzeug.exceptions import BadRequest
@@ -36,7 +37,9 @@ class Login(Resource):
 
             # Check if user exists and password is correct
             if check_password_hash(user["password"], password):
-                return create_response_success("Login successful."), 200
+                access_token = create_access_token(identity=user["username"])
+                return create_response_success("Login successful.", { "access_token": access_token }), 201
+
             else:
                 return create_response_error("Invalid password."), 401
             
@@ -80,7 +83,8 @@ class Signup(Resource):
         except PyMongoError as e:
             return create_response_error("Database error occurred.", str(e)), 500
 
-        return create_response_success("User created successfully."), 201
+        access_token = create_access_token(identity=username)
+        return create_response_success("User created successfully.", { "access_token": access_token }), 201
 
 
 class Scoreboard(Resource):

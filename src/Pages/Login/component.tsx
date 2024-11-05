@@ -41,9 +41,12 @@ export function Login() {
     setLoading(true);
     const response = await submitUserAuth(credentials, 'login');
     setLoading(false);
-    const { type, message } = response;
+    const { type, message, access_token } = response;
     if (type === 'success') {
       toast.success(message);
+      if (access_token) {
+        localStorage.setItem("access_token", access_token)
+      }
     } else {
       toast.error(message);
     }

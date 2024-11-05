@@ -18,4 +18,5 @@ export interface ServerResponse {
   type: string;
   message: string;
   details?: string;
+  access_token?: string;
 }

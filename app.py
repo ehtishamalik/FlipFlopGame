@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from server.views import views
 from server.api import Login, Signup, Scoreboard
+from flask_jwt_extended import JWTManager
 
 
 def create_app():
@@ -14,11 +15,14 @@ def create_app():
         load_dotenv(".env")
 
     app = Flask(__name__, static_folder='dist', static_url_path='/')
-    api = Api(app)
 
     app.config["DEBUG"] = os.getenv("DEBUG", "False")
     app.config["DATABASE_URL"] = os.getenv("DATABASE_URL")
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+
+    api = Api(app)
+    jwt = JWTManager(app)
 
     app.register_blueprint(views, url_prefix="/")
 
