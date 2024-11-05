@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from server.views import views
 from server.api import Login, Signup, Scoreboard
+from server.helpers import create_response_error
 from flask_jwt_extended import JWTManager
 
 
@@ -23,6 +24,15 @@ def create_app():
 
     api = Api(app)
     jwt = JWTManager(app)
+
+    @jwt.unauthorized_loader
+    def custom_unauthorized_response(err):
+        return create_response_error("Could not save your score, please log in.", str(err)), 401
+
+    # Custom response for invalid or malformed JWT
+    @jwt.invalid_token_loader
+    def custom_invalid_token_response(err):
+        return create_response_error("Could not save your score, please log in.", str(err)), 422
 
     app.register_blueprint(views, url_prefix="/")
 

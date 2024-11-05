@@ -29,6 +29,8 @@ export function FlipFlop() {
     (state: RootState) => state.gameDifficulty.level
   );
 
+  const isUserLogin = useSelector((state: RootState) => state.userLogin.active);
+
   const time = useSelector((state: RootState) => state.counter.seconds);
 
   const seconds = useSelector((state: RootState) => state.counter.seconds);
@@ -43,11 +45,15 @@ export function FlipFlop() {
   const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
 
   useEffect(() => {
+    if (difficulty && !isUserLogin) {
+      toast.info('Please login to save you score.');
+    }
+
     if (!difficulty) {
-      toast.error('Please select game difficulty.', { autoClose: 3000 });
+      toast.error('Please select game difficulty.');
       navigate('/gamedifficulty');
     }
-  }, [difficulty, navigate]);
+  }, [isUserLogin, difficulty, navigate]);
 
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
     if (alreadyFlipped.current.includes(imageName)) return;
@@ -101,17 +107,25 @@ export function FlipFlop() {
         }
       );
       counterStop();
-      handleSubmitScoreboard();
+      toast.promise(handleSubmitScoreboard, {
+        pending: 'Saving Socre....',
+      });
     }
   };
 
   const handleSubmitScoreboard = async () => {
+    const token = localStorage.getItem('access_token');
+
     if (!difficulty) return;
-    const response = await submitScoreboard(difficulty, {
-      username: 'temp',
-      moves_count: movesCount,
-      seconds: time,
-    });
+
+    const response = await submitScoreboard(
+      difficulty,
+      {
+        moves_count: movesCount,
+        seconds: time,
+      },
+      token ?? ''
+    );
     if (response.type === 'error') {
       toast.error(response.message);
       return;

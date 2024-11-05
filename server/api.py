@@ -105,28 +105,29 @@ class Scoreboard(Resource):
         except PyMongoError as e:
             return create_response_error("Database error occurred.", str(e)), 500
     
+    @jwt_required()
     def post(self, difficulty: str):
+        current_user = get_jwt_identity()
         try:
             data: Dict[str, str | int] = request.get_json()
         except BadRequest as e:
             return create_response_error("Request data must be in JSON format.", str(e)), 400
         
-        username: str = data.get("username", None)
         moves_count: int = data.get("moves_count", 0)
         seconds: int = data.get("seconds", 0)
 
         # Check if all fields are provided
-        if not username or moves_count < 1 or seconds < 1:
-            return create_response_error("Invalid input data."), 400
+        if moves_count < 1 or seconds < 1:
+            return create_response_error("Could not save the score.", "Invalid Input Data"), 400
     
         collection_name: str = f"Scoreboard_{difficulty.lower()}"
 
         # Ensure the collection name is valid
         if collection_name not in Scoreboard_collections:
-            return create_response_error("Invalid difficulty level."), 400
+            return create_response_error("Could not save the score.", "Invalid difficulty level."), 400
         
         new_score: Dict[str, str | int] = {
-            "username": username,
+            "username": current_user,
             "moves_count": moves_count,
             "seconds": seconds
         }
