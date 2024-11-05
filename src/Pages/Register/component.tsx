@@ -72,9 +72,9 @@ export function Register() {
     if (type === 'success') {
       toast.success(message);
       if (access_token) {
-        localStorage.setItem("access_token", access_token)
+        localStorage.setItem('access_token', access_token);
         dispatch(setUserLogin(true));
-        navigate("/")
+        navigate('/');
       }
     } else {
       toast.error(message);

@@ -2,11 +2,21 @@ import { useLocation, useNavigate, matchPath } from 'react-router-dom';
 import { Button } from '../Button';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, setUserLogin } from '../../../store';
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const isUserLogin = useSelector((state: RootState) => state.userLogin.active);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch(setUserLogin(false));
+  };
 
   const redirectTo = (path: string) => () => {
     navigate(path);
@@ -49,18 +59,13 @@ export function NavBar() {
               type="tertiary"
               onClickCallback={redirectTo('/scoreboard')}
             />
-          </div>
-          <div className="navbar__buttons">
-            <Button
-              text="login"
-              type="secondary"
-              onClickCallback={redirectTo('/login')}
-            />
-            <Button
-              text="register"
-              type="primary"
-              onClickCallback={redirectTo('/register')}
-            />
+            {isUserLogin && (
+              <Button
+                text="logout"
+                type="tertiary"
+                onClickCallback={handleLogout}
+              />
+            )}
             <button
               className={clsx('navbar__mobile--close', {
                 active: isOpen,
@@ -71,44 +76,67 @@ export function NavBar() {
               <span className="navbar__mobile--close-bar"></span>
               <span className="navbar__mobile--close-bar"></span>
             </button>
-          </div>
-          <div
-            className={clsx('navbar__mobile', {
-              active: isOpen,
-            })}
-          >
-            <div className="navbar__mobile--actions">
-              {isNotHome && (
+            <div
+              className={clsx('navbar__mobile', {
+                active: isOpen,
+              })}
+            >
+              <div className="navbar__mobile--actions">
+                {isNotHome && (
+                  <Button
+                    text="home"
+                    type="tertiary"
+                    onClickCallback={redirectTo('/')}
+                  />
+                )}
                 <Button
-                  text="home"
+                  text="difficulty"
                   type="tertiary"
-                  onClickCallback={redirectTo('/')}
+                  onClickCallback={redirectTo('/gamedifficulty')}
                 />
+                <Button
+                  text="scoreboard"
+                  type="tertiary"
+                  onClickCallback={redirectTo('/scoreboard')}
+                />
+                {isUserLogin && (
+                  <Button
+                    text="logout"
+                    type="tertiary"
+                    onClickCallback={handleLogout}
+                  />
+                )}
+              </div>
+              {!isUserLogin && (
+                <div className="navbar__mobile--auth">
+                  <Button
+                    text="login"
+                    type="tertiary"
+                    onClickCallback={redirectTo('/login')}
+                  />
+                  <Button
+                    text="register"
+                    type="tertiary"
+                    onClickCallback={redirectTo('/register')}
+                  />
+                </div>
               )}
-              <Button
-                text="difficulty"
-                type="tertiary"
-                onClickCallback={redirectTo('/gamedifficulty')}
-              />
-              <Button
-                text="scoreboard"
-                type="tertiary"
-                onClickCallback={redirectTo('/scoreboard')}
-              />
             </div>
-            <div className="navbar__mobile--auth">
+          </div>
+          {!isUserLogin && (
+            <div className="navbar__buttons">
               <Button
                 text="login"
-                type="tertiary"
+                type="secondary"
                 onClickCallback={redirectTo('/login')}
               />
               <Button
                 text="register"
-                type="tertiary"
+                type="primary"
                 onClickCallback={redirectTo('/register')}
               />
             </div>
-          </div>
+          )}
         </div>
       </nav>
     )

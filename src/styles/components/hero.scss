@@ -34,16 +34,16 @@
     }
   
     &__links {
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-    }
-  
-    &__buttons {
       .ff-button {
         @include media-breakpoint-down(sm) {
           display: none;
         }
+      }
+    }
+  
+    &__buttons {
+      @include media-breakpoint-down(md) {
+        display: none;
       }
     }
 
@@ -80,10 +80,10 @@
         width: $navbar-mobile-btn-close-size;
         height: 100%;
         padding: rem(8);
+        cursor: pointer;
         border: none;
         border-radius: $border-radius-inner;
         outline: none;
-        cursor: pointer;
 
         &-bar {
           display: inline-block;
