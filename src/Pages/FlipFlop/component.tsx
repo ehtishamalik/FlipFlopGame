@@ -35,8 +35,6 @@ export function FlipFlop() {
 
   const isUserLogin = useSelector((state: RootState) => state.userLogin.active);
 
-  const time = useSelector((state: RootState) => state.counter.seconds);
-
   const seconds = useSelector((state: RootState) => state.counter.seconds);
 
   const difficultyNumber: number = difficulty
@@ -132,7 +130,7 @@ export function FlipFlop() {
       difficulty,
       {
         moves_count: movesCount,
-        seconds: time,
+        seconds: seconds,
       },
       token ?? ''
     );

@@ -34,7 +34,7 @@
     }
   
     &__links {
-      .ff-button {
+      > .ff-button {
         @include media-breakpoint-down(sm) {
           display: none;
         }

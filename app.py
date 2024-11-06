@@ -9,15 +9,12 @@ from flask_jwt_extended import JWTManager
 
 
 def create_app():
-    # Load .env file
-    if os.getenv("FLASK_ENV") == "production":
-        load_dotenv(".env.production")
-    else:
-        load_dotenv(".env")
-
     app = Flask(__name__, static_folder='dist', static_url_path='/')
 
-    app.config["DEBUG"] = os.getenv("DEBUG", "False")
+    # Load .env file
+    load_dotenv(".env")
+
+    app.config["DEBUG"] = os.getenv("DEBUG", False)
     app.config["DATABASE_URL"] = os.getenv("DATABASE_URL")
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
