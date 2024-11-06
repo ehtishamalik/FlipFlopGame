@@ -10,3 +10,17 @@ export const difficultyOptions = {
   [HARD]: 8,
   [EXPERT]: 10,
 } as const;
+
+export const InitialRegisterCredentials = {
+  username: '',
+  email: '',
+  password: '',
+  confirm_password: '',
+};
+
+export const InitialLoginCredentials = {
+  username: '',
+  password: '',
+};
+
+export const errorResponse = 'An unexpected error occured, please try again.';

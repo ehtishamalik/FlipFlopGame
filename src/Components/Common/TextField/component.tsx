@@ -7,16 +7,16 @@ export function TextField({
   label,
   type,
   size,
+  name,
   errorText,
   onChangeCallback,
 }: TextFieldProps) {
   const [value, setValue] = useState<string>('');
-  const onInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeCallback(value, event);
+  const onInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setValue(value);
+    onChangeCallback(value, name, event);
   };
 
   return (
@@ -28,7 +28,7 @@ export function TextField({
       >
         <input
           type={type}
-          name=""
+          name={name}
           id={id}
           className={clsx(
             'ff-field-text__input',
@@ -37,7 +37,6 @@ export function TextField({
               'ff-field-text__input--value': value,
             }
           )}
-          onChange={onChangeHandler}
           onInput={onInputHandler}
         />
         <label htmlFor={id} className="ff-field-text__label">

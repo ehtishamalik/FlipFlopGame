@@ -19,15 +19,15 @@
     color: $button-color-secondary;
     background-color: $button-color-primary;
 
-    &.active,
-    &:hover {
+    &.active:not(:disabled),
+    &:hover:not(:disabled) {
       box-shadow: $button-box-shadow;
     }
   }
 
   &__secondary {
-    &.active,
-    &:hover {
+    &.active:not(:disabled),
+    &:hover:not(:disabled) {
       color: $button-color-secondary;
       background-color: $button-color-primary;
     }
@@ -51,11 +51,16 @@
       transition: opacity $transition-standard;
     }
 
-    &.active,
-    &:hover {
+    &.active:not(:disabled),
+    &:hover:not(:disabled) {
       &::after {
         opacity: 1;
       }
     }
+  }
+
+  &__disabled {
+    cursor: auto;
+    opacity: $opacity-half;
   }
 }

@@ -14,8 +14,9 @@ export interface IScore {
 
 export type LoadingCallback = (value: boolean) => void;
 
-export interface ServerError {
+export interface ServerResponse {
   type: string;
   message: string;
-  details: string;
+  details?: string;
+  access_token?: string;
 }

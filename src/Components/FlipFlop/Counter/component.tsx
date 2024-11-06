@@ -1,6 +1,11 @@
 import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { startCounter, stopCounter, incrementCounter } from '../../../store';
+import {
+  startCounter,
+  stopCounter,
+  incrementCounter,
+  resetCounter,
+} from '../../../store';
 import { RootState } from '../../../store';
 import { CounterProps, CounterRef } from './types';
 import { formatSeconds } from '../../../utils';
@@ -16,6 +21,7 @@ export const Counter = forwardRef<CounterRef, CounterProps>((props, ref) => {
   useImperativeHandle(ref, () => ({
     start: () => dispatch(startCounter()),
     stop: () => dispatch(stopCounter()),
+    reset: () => dispatch(resetCounter()),
   }));
 
   // Effect to handle the counter update

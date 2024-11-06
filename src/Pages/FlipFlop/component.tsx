@@ -29,7 +29,11 @@ export function FlipFlop() {
     (state: RootState) => state.gameDifficulty.level
   );
 
-  const time = useSelector((state: RootState) => state.counter.seconds);
+  const isCounterRunning = useSelector(
+    (state: RootState) => state.counter.running
+  );
+
+  const isUserLogin = useSelector((state: RootState) => state.userLogin.active);
 
   const seconds = useSelector((state: RootState) => state.counter.seconds);
 
@@ -43,17 +47,27 @@ export function FlipFlop() {
   const cards = useMemo(() => generateRandomArray(cardLength), [cardLength]);
 
   useEffect(() => {
+    if (difficulty && !isUserLogin) {
+      toast.info('Please login to save your score.');
+    }
+
     if (!difficulty) {
-      toast.error('Please select game difficulty.', { autoClose: 3000 });
+      toast.error('Please select game difficulty.');
       navigate('/gamedifficulty');
     }
-  }, [difficulty, navigate]);
+  }, [isUserLogin, difficulty, navigate]);
+
+  useEffect(() => {
+    if (isCounterRunning) {
+      counterReset();
+    }
+  }, [difficulty]);
 
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
     if (alreadyFlipped.current.includes(imageName)) return;
 
     if (firstCard.current === null) {
-      counterStart();
+      if (!isCounterRunning) counterStart();
 
       firstCard.current = currentTarget;
       firstCardNumber.current = imageName;
@@ -101,17 +115,25 @@ export function FlipFlop() {
         }
       );
       counterStop();
-      handleSubmitScoreboard();
+      toast.promise(handleSubmitScoreboard, {
+        pending: 'Saving Socre....',
+      });
     }
   };
 
   const handleSubmitScoreboard = async () => {
+    const token = localStorage.getItem('access_token');
+
     if (!difficulty) return;
-    const response = await submitScoreboard(difficulty, {
-      username: 'temp',
-      moves_count: movesCount,
-      seconds: time,
-    });
+
+    const response = await submitScoreboard(
+      difficulty,
+      {
+        moves_count: movesCount,
+        seconds: seconds,
+      },
+      token ?? ''
+    );
     if (response.type === 'error') {
       toast.error(response.message);
       return;
@@ -125,6 +147,10 @@ export function FlipFlop() {
 
   const counterStop = () => {
     if (counterRef.current) counterRef.current.stop();
+  };
+
+  const counterReset = () => {
+    if (counterRef.current) counterRef.current.reset();
   };
 
   return (

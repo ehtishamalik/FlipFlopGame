@@ -26,7 +26,9 @@ export function Scoreboard() {
   };
 
   useEffect(() => {
-    handleFetchScoreboard();
+    toast.promise(handleFetchScoreboard, {
+      pending: 'Getting scores...',
+    });
   }, [difficulty]);
 
   return (

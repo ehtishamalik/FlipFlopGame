@@ -7,8 +7,9 @@ def create_response_error(message: str, details: str = ""):
         "details": details,
     }
 
-def create_response_success(message: str):
+def create_response_success(message: str, additional = {}):
     return {
         "type": "success",
         "message": message,
+        **additional
     }

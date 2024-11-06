@@ -5,6 +5,7 @@ export function Button({
   text,
   type,
   active = false,
+  disabled,
   onClickCallback,
 }: ButtonProps) {
   return (
@@ -13,10 +14,12 @@ export function Button({
         'ff-button__primary': type === 'primary',
         'ff-button__secondary': type === 'secondary',
         'ff-button__tertiary': type === 'tertiary',
+        'ff-button__disabled': disabled,
         active: active,
       })}
       type="button"
       role="button"
+      disabled={disabled}
       onClick={onClickCallback}
     >
       {text}

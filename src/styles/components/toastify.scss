@@ -13,36 +13,9 @@
     color: white;
     transform: translate3d(0, 0, $toastify-z-index);
 
-    &--top-left {
-      top: $toastify-toast-top;
-      left: $toastify-toast-left;
-    }
-
-    &--top-center {
-      top: $toastify-toast-top;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     &--top-right {
       top: $toastify-toast-top;
       right: $toastify-toast-right;
-    }
-
-    &--bottom-left {
-      bottom: $toastify-toast-bottom;
-      left: $toastify-toast-left;
-    }
-
-    &--bottom-center {
-      bottom: $toastify-toast-bottom;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    &--bottom-right {
-      right: $toastify-toast-right;
-      bottom: $toastify-toast-bottom;
     }
 
     @media only screen and (width <= 480px) {
@@ -51,17 +24,8 @@
       padding: 0;
       margin: 0;
 
-      &--top-left,
-      &--top-center,
       &--top-right {
         top: env(safe-area-inset-top);
-        transform: translateX(0);
-      }
-
-      &--bottom-left,
-      &--bottom-center,
-      &--bottom-right {
-        bottom: env(safe-area-inset-bottom);
         transform: translateX(0);
       }
 
@@ -88,11 +52,6 @@
     &:focus {
       opacity: 1;
     }
-
-    &--light {
-      color: black;
-      opacity: 0.3;
-    }
     
     > svg {
       width: 14px;
@@ -118,7 +77,7 @@
     touch-action: none;
     cursor: default;
     border-radius: $toastify-toast-bd-radius;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    box-shadow: $toastify-toast-box-shadow;
     direction: ltr;
 
     &-body {
@@ -220,37 +179,40 @@
     &-theme--dark {
       color: $toastify-text-color-dark;
       background: $toastify-color-dark;
+      
+      &.Toastify__toast--info {
+        .Toastify__toast-icon {
+          svg {
+            fill: $toastify-icon-color-info;
+          }
+        }
+      }
+      
+      &.Toastify__toast--success {
+        .Toastify__toast-icon {
+          svg {
+            fill: $toastify-icon-color-success;
+          }
+        }
+      }
+      
+      &.Toastify__toast--warning {
+        .Toastify__toast-icon {
+          svg {
+            fill: $toastify-icon-color-warning;
+          }
+        }
+      }
+      
+      &.Toastify__toast--error {
+        .Toastify__toast-icon {
+          svg {
+            fill: $toastify-icon-color-error;
+          }
+        }
+      }
     }
     
-    &-theme--light {
-      color: $toastify-text-color-light;
-      background: $toastify-color-light;
-    }
-    
-    &-theme--colored.Toastify__toast--default {
-      color: $toastify-text-color-light;
-      background: $toastify-color-light;
-    }
-    
-    &-theme--colored.Toastify__toast--info {
-      color: $toastify-text-color-info;
-      background: $toastify-color-info;
-    }
-    
-    &-theme--colored.Toastify__toast--success {
-      color: $toastify-text-color-success;
-      background: $toastify-color-success;
-    }
-    
-    &-theme--colored.Toastify__toast--warning {
-      color: $toastify-text-color-warning;
-      background: $toastify-color-warning;
-    }
-    
-    &-theme--colored.Toastify__toast--error {
-      color: $toastify-text-color-error;
-      background: $toastify-color-error;
-    }
   }
 
   &--animate {
@@ -274,23 +236,9 @@
     opacity: 0.7;
     transform-origin: left;
     
-    &-theme {
-      &--light {
-        background: $toastify-color-progress-light;
-      }
-
-      &--dark {
-        background: $toastify-color-progress-dark;
-      }
-
-      &--colored.Toastify__progress-bar--info,
-      &--colored.Toastify__progress-bar--success,
-      &--colored.Toastify__progress-bar--warning,
-      &--colored.Toastify__progress-bar--error {
-        background: $toastify-color-transparent;
-      }
+    &-theme--dark {
+      background: $toastify-color-progress-dark;
     }
-    
     
     &--info {
       background: $toastify-color-progress-info;

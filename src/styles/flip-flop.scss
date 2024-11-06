@@ -33,14 +33,26 @@
       
       &--medium {
         grid-template-columns: repeat(6, 1fr);
+        
+        @include media-breakpoint-down(sm) {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
       
       &--hard {
         grid-template-columns: repeat(8, 1fr);
+        
+        @include media-breakpoint-down(sm) {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
       
       &--expert {
         grid-template-columns: repeat(10, 1fr);
+        
+        @include media-breakpoint-down(sm) {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
 
       .card {
