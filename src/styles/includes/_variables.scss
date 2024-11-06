@@ -21,7 +21,7 @@ $gray: rgb(91 91 91);
 $red: red;
 
 /* Typography */
-$text-font-familty: Montserrat, sans-serif;
+$text-font-familty: montserrat, sans-serif;
 $text-light: 400;
 $text-medium: 500;
 $text-bold: 600;
@@ -99,7 +99,7 @@ $toastify-toast-width: rem(320);
 $toastify-toast-offset: rem(16);
 $toastify-toast-min-height: rem(64);
 $toastify-toast-max-height: rem(800);
-$toastify-toast-bd-radius: rem(6);
+$toastify-toast-bd-radius: $border-radius-inner;
 $toastify-toast-top: max($toastify-toast-offset, env(safe-area-inset-top));
 $toastify-toast-right: max($toastify-toast-offset, env(safe-area-inset-right));
 $toastify-font-family: $text-font-familty;

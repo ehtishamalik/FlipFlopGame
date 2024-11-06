@@ -29,6 +29,10 @@ export function FlipFlop() {
     (state: RootState) => state.gameDifficulty.level
   );
 
+  const isCounterRunning = useSelector(
+    (state: RootState) => state.counter.running
+  );
+
   const isUserLogin = useSelector((state: RootState) => state.userLogin.active);
 
   const time = useSelector((state: RootState) => state.counter.seconds);
@@ -46,7 +50,7 @@ export function FlipFlop() {
 
   useEffect(() => {
     if (difficulty && !isUserLogin) {
-      toast.info('Please login to save you score.');
+      toast.info('Please login to save your score.');
     }
 
     if (!difficulty) {
@@ -55,11 +59,17 @@ export function FlipFlop() {
     }
   }, [isUserLogin, difficulty, navigate]);
 
+  useEffect(() => {
+    if (isCounterRunning) {
+      counterReset();
+    }
+  }, [difficulty]);
+
   const onCardFlip = (imageName: number, currentTarget: HTMLButtonElement) => {
     if (alreadyFlipped.current.includes(imageName)) return;
 
     if (firstCard.current === null) {
-      counterStart();
+      if (!isCounterRunning) counterStart();
 
       firstCard.current = currentTarget;
       firstCardNumber.current = imageName;
@@ -139,6 +149,10 @@ export function FlipFlop() {
 
   const counterStop = () => {
     if (counterRef.current) counterRef.current.stop();
+  };
+
+  const counterReset = () => {
+    if (counterRef.current) counterRef.current.reset();
   };
 
   return (
