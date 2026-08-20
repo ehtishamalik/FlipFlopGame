@@ -11,14 +11,14 @@ Run `python3 -m venv .venv` to create virtual environment named '.venv'
 Run `source .venv/bin/activate` for Linux/macOS
 
 4. **Install Packages**<br>
-Run `yarn pip:install` to install Python modules.<br>
-Run `yarn install` to install ReactJS dependencies.
+Run `bun pip:install` to install Python modules.<br>
+Run `bun install` to install ReactJS dependencies.
 
 5. **Build Project**<br>
-Run `yarn build` to build the react files.
+Run `bun build` to build the react files.
 
 6. **Run Server**<br>
-Run `yarn serve` to serve react using flask for production.
+Run `bun serve` to serve react using flask for production.
 
 ## About
 The repository facilitates a smooth development workflow by integrating React for the frontend and Flask for the backend. It utilizes the `Chokidar` package to detect changes in React or SCSS files, triggering automatic builds to ensure Flask serves the latest updates. Additionally, comprehensive linting for React and SCSS has been implemented using `ESLint` and `Stylelint`. Download or Fork the repository and follow the steps below to setup a clean peoject.
@@ -29,20 +29,20 @@ Run `python3 -m venv .venv` to create virtual environment named '.venv'
 Run `source .venv/bin/activate` for Linux/macOS
 
 4. **Install Packages**<br>
-Run `yarn pip:install` to install Python modules.<br>
-Run `yarn install` to install ReactJS dependencies.
+Run `bun pip:install` to install Python modules.<br>
+Run `bun install` to install ReactJS dependencies.
 
 5. **Build Project on watch**<br>
-Run `yarn watch` to build the frontend files everytime you change something in .tsx, .ts, .scss .html files. This command builds non-minified js and css file.
+Run `bun watch` to build the frontend files everytime you change something in .tsx, .ts, .scss .html files. This command builds non-minified js and css file.
 
 6. **Run Development Server**<br>
-Run `yarn dev` to serve react using flask in debug mode.
+Run `bun dev` to serve react using flask in debug mode.
 
 7. **Formatting**<br>
-Run `yarn lint:fix | yarn lint` to lint and format .ts, .tsx and .scss file and file too.
+Run `bun lint:fix | bun lint` to lint and format .ts, .tsx and .scss file and file too.
 
 ##
-**Note:** Please refer to the package.json file to gain a comprehensive understanding of all available commands. Ensure that Yarn is installed on your system for seamless usage.
+**Note:** Please refer to the package.json file to gain a comprehensive understanding of all available commands. Ensure that Bun (for React) & uv (for python) is installed on your system for seamless usage.
 
 ## Add a `.env` file in the root for environment variables.
 ```
